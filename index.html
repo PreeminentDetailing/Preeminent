@@ -48,12 +48,21 @@
 
         <!-- Main Content -->
         <main class="ml-64 flex-1">
+            <!-- Home Section -->
+            <section id="home" class="py-12">
+                <div class="container mx-auto text-center">
+                    <h2 class="text-4xl font-bold primary-color mb-4">Unleash Your Car's True Potential</h2>
+                    <p class="text-lg mb-6">Experience luxury mobile detailing that transforms your vehicle with precision and care.</p>
+                    <a href="#booking" class="primary-bg text-white py-3 px-6 rounded hover:bg-gray-800 transition">Book Now</a>
+                </div>
+            </section>
+
             <!-- Services Section -->
             <section id="services" class="py-12">
                 <div class="container mx-auto">
                     <h2 class="text-3xl font-bold primary-color mb-6 text-center">Our Services</h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        <!-- Services and Packages -->
+                        <!-- Example Service -->
                         <div>
                             <h3 class="text-xl font-bold mb-2 cursor-pointer primary-color" onclick="toggleDetails('service1')">
                                 Exterior Wash & Protection - £70
@@ -68,75 +77,36 @@
                                 - Glass cleaned and polished
                             </p>
                         </div>
-                        <div>
-                            <h3 class="text-xl font-bold mb-2 cursor-pointer primary-color" onclick="toggleDetails('service2')">
-                                Interior Deep Clean - £70
-                            </h3>
-                            <img src="Interior.png" alt="Interior Deep Clean" class="w-24 h-24 mb-4 rounded">
-                            <p id="service2" class="hidden">
-                                - Full vacuum of interior and boot<br>
-                                - Carpet shampoo and stain removal<br>
-                                - Leather cleaned and dressed<br>
-                                - Plastics deep cleaned and dressed<br>
-                                - Glass cleaned<br>
-                                - Air freshener applied
-                            </p>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold mb-2 cursor-pointer primary-color" onclick="toggleDetails('service3')">
-                                Interior + Exterior Package - £125
-                            </h3>
-                            <img src="Interior + Exterior.png" alt="Interior + Exterior" class="w-24 h-24 mb-4 rounded">
-                            <p id="service3" class="hidden">
-                                - Includes both the Exterior Wash & Protection and Interior Deep Clean.
-                            </p>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold mb-2 cursor-pointer primary-color" onclick="toggleDetails('service4')">
-                                Maintenance Package - £90
-                            </h3>
-                            <img src="Maintenance Package.jpg" alt="Maintenance Package" class="w-24 h-24 mb-4 rounded">
-                            <p id="service4" class="hidden">
-                                - Exterior Wash & Protection<br>
-                                - Interior refresh (basic vacuum, wipe down, and glass clean)
-                            </p>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold mb-2 cursor-pointer primary-color" onclick="toggleDetails('service5')">
-                                Enhancement Package - £185
-                            </h3>
-                            <img src="Enhancement Package.png" alt="Enhancement Package" class="w-24 h-24 mb-4 rounded">
-                            <p id="service5" class="hidden">
-                                - Exterior Wash & Protection<br>
-                                - Decontamination: Fallout remover and clay bar treatment<br>
-                                - 1-Year Ceramic Coating applied
-                            </p>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold mb-2 cursor-pointer primary-color" onclick="toggleDetails('service6')">
-                                Showroom Finish Package - £450
-                            </h3>
-                            <img src="Showroom Package.png" alt="Showroom Finish Package" class="w-24 h-24 mb-4 rounded">
-                            <p id="service6" class="hidden">
-                                - Full Exterior Wash & Protection<br>
-                                - Full Decontamination<br>
-                                - Wash, Decontamination & Stage 2 Correction<br>
-                                - 2-Year Ceramic Coating applied<br>
-                                - Engine Bay Clean
-                            </p>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold mb-2 cursor-pointer primary-color" onclick="toggleDetails('service7')">
-                                New Car Protection Package - From £180
-                            </h3>
-                            <img src="new car protection package.png" alt="New Car Protection Package" class="w-24 h-24 mb-4 rounded">
-                            <p id="service7" class="hidden">
-                                - Exterior Wash & Protection<br>
-                                - Decontamination to remove transport contaminants<br>
-                                - 1-Year or 2-Year Ceramic Coating applied<br>
-                                - Optional interior protection
-                            </p>
-                        </div>
+                        <!-- Add more services following the same structure -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact" class="py-12">
+                <div class="container mx-auto text-center">
+                    <h2 class="text-3xl font-bold primary-color mb-6">Contact Us</h2>
+                    <div class="flex flex-col space-y-6 items-center">
+                        <!-- TikTok -->
+                        <a href="https://www.tiktok.com/@thepreeminentdetail?_t=8lMn4E8t3ZJ&_r=1" target="_blank" class="flex items-center space-x-4">
+                            <img src="https://cdn-icons-png.flaticon.com/512/3046/3046122.png" alt="TikTok Logo" class="h-8 w-8">
+                            <span>Follow us on TikTok</span>
+                        </a>
+                        <!-- Instagram -->
+                        <a href="https://www.instagram.com/thepreeminentdetail?igsh=MmYyYzNmZGVxeXN0&utm_source=qr" target="_blank" class="flex items-center space-x-4">
+                            <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram Logo" class="h-8 w-8">
+                            <span>Follow us on Instagram</span>
+                        </a>
+                        <!-- Gmail -->
+                        <a href="mailto:thepreeminentdetail@gmail.com" class="flex items-center space-x-4">
+                            <img src="https://cdn-icons-png.flaticon.com/512/5968/5968534.png" alt="Gmail Logo" class="h-8 w-8">
+                            <span>Email: thepreeminentdetail@gmail.com</span>
+                        </a>
+                        <!-- WhatsApp -->
+                        <a href="https://wa.me/447899220840" target="_blank" class="flex items-center space-x-4">
+                            <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp Logo" class="h-8 w-8">
+                            <span>WhatsApp: 07899220840</span>
+                        </a>
                     </div>
                 </div>
             </section>
