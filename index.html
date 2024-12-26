@@ -27,42 +27,88 @@
     <section id="booking" class="py-12">
         <div class="container mx-auto text-center">
             <h2 class="text-3xl font-bold mb-4">Book Now</h2>
-            <p class="text-lg mb-6">Choose a date and time for your detailing appointment:</p>
-            
+            <p class="text-lg mb-6">Choose a date, time, and service:</p>
+
+            <!-- Service Selection -->
+            <div class="mb-6">
+                <label for="service" class="block text-lg font-bold mb-2">Select a Service</label>
+                <select id="service" class="w-full p-2 border rounded">
+                    <option value="" data-duration="0">-- Select a Service --</option>
+                    <option value="exterior" data-duration="60">Exterior Detailing (1 hour)</option>
+                    <option value="interior" data-duration="90">Interior Detailing (1.5 hours)</option>
+                    <option value="paint" data-duration="120">Paint Correction (2 hours)</option>
+                    <option value="ceramic" data-duration="180">Ceramic Coating (3 hours)</option>
+                </select>
+            </div>
+
             <!-- Calendar -->
             <div id="calendar" class="max-w-md mx-auto"></div>
-            
+
             <!-- Booking Form -->
             <form class="mt-6 max-w-md mx-auto">
                 <input type="hidden" id="selected-date" name="date">
                 <input type="hidden" id="selected-time" name="time">
-                <button type="submit" class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700">Confirm Booking</button>
+                <input type="hidden" id="selected-service" name="service">
+                <button type="submit" class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700" disabled id="confirm-booking">Confirm Booking</button>
             </form>
         </div>
     </section>
 
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script>
-        // Booked slots (for demonstration, replace with actual booked slots from your backend)
         const bookedSlots = [
-            "2024-12-28 10:00",
+            "2024-12-28 10:00", 
             "2024-12-28 14:00",
             "2024-12-29 12:00"
-        ];
+        ]; // Example booked slots
 
-        // Initialize Flatpickr Calendar
-        flatpickr("#calendar", {
+        const serviceDropdown = document.getElementById("service");
+        const confirmButton = document.getElementById("confirm-booking");
+        const calendar = flatpickr("#calendar", {
             inline: true,
             enableTime: true,
             dateFormat: "Y-m-d H:i",
             minDate: "today",
             disable: bookedSlots,
-            onChange: function(selectedDates, dateStr) {
+            onChange: (selectedDates, dateStr) => {
                 const [date, time] = dateStr.split(" ");
                 document.getElementById("selected-date").value = date;
                 document.getElementById("selected-time").value = time;
-            }
+                enableConfirmButton();
+            },
         });
+
+        // Adjust calendar to block overlapping times based on service duration
+        serviceDropdown.addEventListener("change", () => {
+            const selectedOption = serviceDropdown.options[serviceDropdown.selectedIndex];
+            const duration = parseInt(selectedOption.getAttribute("data-duration"));
+
+            if (duration > 0) {
+                const newDisabledSlots = calculateBlockedSlots(duration);
+                calendar.set("disable", [...bookedSlots, ...newDisabledSlots]);
+                document.getElementById("selected-service").value = selectedOption.text;
+            }
+
+            enableConfirmButton();
+        });
+
+        function calculateBlockedSlots(duration) {
+            const blocked = [];
+            bookedSlots.forEach(slot => {
+                const startTime = new Date(slot);
+                const endTime = new Date(startTime.getTime() + duration * 60 * 1000);
+                for (let time = startTime; time < endTime; time.setMinutes(time.getMinutes() + 30)) {
+                    blocked.push(flatpickr.formatDate(time, "Y-m-d H:i"));
+                }
+            });
+            return blocked;
+        }
+
+        function enableConfirmButton() {
+            const serviceSelected = serviceDropdown.value !== "";
+            const dateSelected = document.getElementById("selected-date").value !== "";
+            confirmButton.disabled = !(serviceSelected && dateSelected);
+        }
     </script>
 </body>
 </html>
