@@ -9,20 +9,23 @@
     <style>
         body {
             font-family: 'Helvetica Neue', Arial, sans-serif;
-            background-color: #0D0D0D; /* Dark background */
-            color: #E5E5E5; /* Light text */
+            background-color: #0D0D0D;
+            color: #E5E5E5;
         }
         .primary-color {
-            color: #00C8D7; /* Teal */
+            color: #00C8D7;
         }
         .primary-bg {
-            background-color: #00C8D7; /* Teal background */
+            background-color: #00C8D7;
         }
         a {
             color: #00C8D7;
         }
         a:hover {
-            color: #007a85; /* Darker teal */
+            color: #007a85;
+        }
+        .hidden {
+            display: none;
         }
     </style>
 </head>
@@ -45,145 +48,62 @@
 
         <!-- Main Content -->
         <main class="ml-64 flex-1">
-            <!-- Home Section -->
-            <section id="home" class="py-12">
-                <div class="container mx-auto text-center">
-                    <h2 class="text-4xl font-bold primary-color mb-4">Unleash Your Car's True Potential</h2>
-                    <p class="text-lg mb-6">Experience luxury mobile detailing that transforms your vehicle with precision and care.</p>
-                    <a href="#booking" class="primary-bg text-white py-3 px-6 rounded hover:bg-gray-800 transition">Book Now</a>
-                </div>
-            </section>
-
             <!-- Services Section -->
             <section id="services" class="py-12">
                 <div class="container mx-auto">
                     <h2 class="text-3xl font-bold primary-color mb-6 text-center">Our Services</h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        <!-- Core Services -->
+                        <!-- Example of a Service -->
                         <div>
-                            <h3 class="text-2xl font-bold mb-4">Core Services</h3>
-                            <ul class="space-y-6">
-                                <li class="flex items-start space-x-4">
-                                    <img src="Exterior.png" alt="Exterior Wash" class="w-24 h-24 rounded">
-                                    <div>
-                                        <strong>Exterior Wash & Protection</strong><br>
-                                        £70
-                                    </div>
-                                </li>
-                                <li class="flex items-start space-x-4">
-                                    <img src="Interior.png" alt="Interior Deep Clean" class="w-24 h-24 rounded">
-                                    <div>
-                                        <strong>Interior Deep Clean</strong><br>
-                                        £70
-                                    </div>
-                                </li>
-                                <li class="flex items-start space-x-4">
-                                    <img src="Interior + Exterior.png" alt="Interior + Exterior" class="w-24 h-24 rounded">
-                                    <div>
-                                        <strong>Interior + Exterior Package</strong><br>
-                                        £125
-                                    </div>
-                                </li>
-                            </ul>
+                            <h3 class="text-xl font-bold mb-2 cursor-pointer primary-color" onclick="toggleDetails('service1')">
+                                Exterior Wash & Protection - £70
+                            </h3>
+                            <p id="service1" class="hidden">
+                                - Snow foam pre-wash<br>
+                                - Wheels cleaned (wheel cleaner and fallout remover)<br>
+                                - Hand wash with Synergy Refresh Shampoo<br>
+                                - Insect strip removal<br>
+                                - Sealant applied to paintwork<br>
+                                - Glass cleaned and polished
+                            </p>
                         </div>
-                        <!-- Paint Corrections -->
                         <div>
-                            <h3 class="text-2xl font-bold mb-4">Paint Corrections</h3>
-                            <ul class="space-y-6">
-                                <li class="flex items-start space-x-4">
-                                    <img src="Stage 1.png" alt="Stage 1 Correction" class="w-24 h-24 rounded">
-                                    <div>
-                                        <strong>Stage 1 Correction</strong><br>
-                                        £285
-                                    </div>
-                                </li>
-                                <li class="flex items-start space-x-4">
-                                    <img src="Stage 2.png" alt="Stage 2 Correction" class="w-24 h-24 rounded">
-                                    <div>
-                                        <strong>Stage 2 Correction</strong><br>
-                                        £380
-                                    </div>
-                                </li>
-                            </ul>
+                            <h3 class="text-xl font-bold mb-2 cursor-pointer primary-color" onclick="toggleDetails('service2')">
+                                Interior Deep Clean - £70
+                            </h3>
+                            <p id="service2" class="hidden">
+                                - Full vacuum of interior and boot<br>
+                                - Carpet shampoo and stain removal<br>
+                                - Leather cleaned and dressed<br>
+                                - Plastics deep cleaned and dressed<br>
+                                - Glass cleaned<br>
+                                - Air freshener applied
+                            </p>
                         </div>
-                        <!-- Ceramic Coatings -->
                         <div>
-                            <h3 class="text-2xl font-bold mb-4">Ceramic Coatings</h3>
-                            <ul class="space-y-6">
-                                <li class="flex items-start space-x-4">
-                                    <img src="Ceramic Coating.png" alt="1-Year Ceramic" class="w-24 h-24 rounded">
-                                    <div>
-                                        <strong>1-Year Ceramic Coating</strong><br>
-                                        £70
-                                    </div>
-                                </li>
-                                <li class="flex items-start space-x-4">
-                                    <img src="2 Year Ceramic Coating.png" alt="2-Year Ceramic" class="w-24 h-24 rounded">
-                                    <div>
-                                        <strong>2-Year Ceramic Coating</strong><br>
-                                        £100
-                                    </div>
-                                </li>
-                            </ul>
+                            <h3 class="text-xl font-bold mb-2 cursor-pointer primary-color" onclick="toggleDetails('service3')">
+                                Interior + Exterior Package - £125
+                            </h3>
+                            <p id="service3" class="hidden">
+                                - Includes both the Exterior Wash & Protection and Interior Deep Clean.
+                            </p>
                         </div>
-                        <!-- Additional Services -->
-                        <div>
-                            <h3 class="text-2xl font-bold mb-4">Additional Services</h3>
-                            <ul class="space-y-6">
-                                <li class="flex items-start space-x-4">
-                                    <img src="Engine Bay.png" alt="Engine Bay Clean" class="w-24 h-24 rounded">
-                                    <div>
-                                        <strong>Engine Bay Clean</strong><br>
-                                        £15
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- Packages -->
-                        <div>
-                            <h3 class="text-2xl font-bold mb-4">Packages</h3>
-                            <ul class="space-y-6">
-                                <li class="flex items-start space-x-4">
-                                    <img src="Maintenance Package.jpg" alt="Maintenance Package" class="w-24 h-24 rounded">
-                                    <div>
-                                        <strong>Maintenance Package</strong><br>
-                                        £90
-                                    </div>
-                                </li>
-                                <li class="flex items-start space-x-4">
-                                    <img src="Enhancement Package.png" alt="Enhancement Package" class="w-24 h-24 rounded">
-                                    <div>
-                                        <strong>Enhancement Package</strong><br>
-                                        £185
-                                    </div>
-                                </li>
-                                <li class="flex items-start space-x-4">
-                                    <img src="Preeminent Package.webp" alt="Preeminent Detail" class="w-24 h-24 rounded">
-                                    <div>
-                                        <strong>Preeminent Detail Package</strong><br>
-                                        £350
-                                    </div>
-                                </li>
-                                <li class="flex items-start space-x-4">
-                                    <img src="Showroom Package.png" alt="Showroom Finish" class="w-24 h-24 rounded">
-                                    <div>
-                                        <strong>Showroom Finish Package</strong><br>
-                                        £450
-                                    </div>
-                                </li>
-                                <li class="flex items-start space-x-4">
-                                    <img src="new car protection package.png" alt="New Car Protection Package" class="w-24 h-24 rounded">
-                                    <div>
-                                        <strong>New Car Protection Package</strong><br>
-                                        From £180
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
+                        <!-- Repeat for all services -->
                     </div>
                 </div>
             </section>
         </main>
     </div>
+
+    <script>
+        function toggleDetails(id) {
+            const element = document.getElementById(id);
+            if (element.classList.contains('hidden')) {
+                element.classList.remove('hidden');
+            } else {
+                element.classList.add('hidden');
+            }
+        }
+    </script>
 </body>
 </html>
