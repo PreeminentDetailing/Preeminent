@@ -3,22 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mobile Detailing Services</title>
+    <title>Preeminent Detailing</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <style>
-        .tab-content { display: none; }
-        .tab-content.active { display: block; }
+        /* Custom Styles */
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #0D0D0D; /* Dark blue/black background */
+            color: #E5E5E5; /* Light grey text */
+        }
+        .primary-color {
+            color: #00C8D7; /* Teal accent */
+        }
+        .primary-bg {
+            background-color: #00C8D7; /* Teal background */
+        }
+        a {
+            color: #00C8D7;
+        }
+        a:hover {
+            color: #007a85; /* Slightly darker teal for hover */
+        }
     </style>
 </head>
-<body class="bg-gray-100">
-    <!-- Header -->
-    <header class="bg-blue-600 text-white py-4">
+<body class="bg-gray-900">
+    <!-- Header with Logo -->
+    <header class="bg-gray-900 py-6">
         <div class="container mx-auto flex justify-between items-center">
-            <h1 class="text-2xl font-bold">Mobile Detailing Pro</h1>
+            <img src="path/to/your/logo.png" alt="Preeminent Detailing Logo" class="h-16">
             <nav>
-                <ul class="flex space-x-4">
+                <ul class="flex space-x-6 text-lg">
                     <li><a href="#home" class="hover:underline">Home</a></li>
+                    <li><a href="#services" class="hover:underline">Services</a></li>
+                    <li><a href="#portfolio" class="hover:underline">Portfolio</a></li>
                     <li><a href="#booking" class="hover:underline">Book Now</a></li>
                     <li><a href="#contact" class="hover:underline">Contact</a></li>
                 </ul>
@@ -26,34 +44,77 @@
         </div>
     </header>
 
-    <!-- Home Section with Tabs -->
-    <section id="home" class="bg-gray-200 py-12">
+    <!-- Home Section -->
+    <section id="home" class="py-12">
         <div class="container mx-auto text-center">
-            <h2 class="text-4xl font-bold mb-4">Welcome to Mobile Detailing Pro</h2>
-            <p class="text-lg mb-6">Professional mobile detailing services delivered to your doorstep.</p>
-            <div class="tabs">
-                <button class="tab-link active" data-tab="services">Services</button>
-                <button class="tab-link" data-tab="portfolio">Portfolio</button>
-            </div>
-            <div id="services" class="tab-content active">
-                <h3 class="text-3xl font-bold my-4">Our Services</h3>
-                <ul class="text-left mx-auto max-w-2xl">
-                    <li class="mb-2">• Maintenance Package</li>
-                    <li class="mb-2">• Enhancement Package</li>
-                    <li class="mb-2">• Ultimate Detail Package</li>
-                    <li class="mb-2">• Showroom Finish Package</li>
-                    <li class="mb-2">• New Car Protection Package</li>
-                </ul>
-            </div>
-            <div id="portfolio" class="tab-content">
-                <h3 class="text-3xl font-bold my-4">Our Portfolio</h3>
-                <p class="text-lg mb-6">Some of our best work:</p>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <img src="https://via.placeholder.com/150" alt="Before" class="rounded shadow">
-                    <img src="https://via.placeholder.com/150" alt="After" class="rounded shadow">
-                    <img src="https://via.placeholder.com/150" alt="Before" class="rounded shadow">
-                    <img src="https://via.placeholder.com/150" alt="After" class="rounded shadow">
+            <h2 class="text-4xl font-bold primary-color mb-4">Welcome to Preeminent Detailing</h2>
+            <p class="text-lg mb-6">Premium mobile detailing services that bring your car to life.</p>
+            <a href="#booking" class="primary-bg text-white py-3 px-6 rounded hover:bg-gray-800 transition">Book Now</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-12">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold primary-color mb-6 text-center">Our Services</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Core Services -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">Core Services</h3>
+                    <ul>
+                        <li>Exterior Wash & Protection - £70 (2 hours)</li>
+                        <li>Interior Deep Clean - £70 (2.5 hours)</li>
+                        <li>Interior + Exterior Package - £125 (4.5 hours)</li>
+                    </ul>
                 </div>
+                <!-- Paint Corrections -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">Paint Corrections</h3>
+                    <ul>
+                        <li>Stage 1 Correction - £285 (6 hours)</li>
+                        <li>Stage 2 Correction - £380 (8 hours)</li>
+                    </ul>
+                </div>
+                <!-- Ceramic Coatings -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">Ceramic Coatings</h3>
+                    <ul>
+                        <li>1-Year Ceramic Coating - £70 (2 hours)</li>
+                        <li>2-Year Ceramic Coating - £100 (2 hours)</li>
+                    </ul>
+                </div>
+                <!-- Additional Services -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">Additional Services</h3>
+                    <ul>
+                        <li>Engine Bay Clean - £15 (30 minutes)</li>
+                    </ul>
+                </div>
+                <!-- Packages -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">Packages</h3>
+                    <ul>
+                        <li>Maintenance Package - £90 (2.5 hours)</li>
+                        <li>Enhancement Package - £185 (4 hours)</li>
+                        <li>Preeminent Detail Package - £350 (8 hours)</li>
+                        <li>Showroom Finish Package - £450 (10 hours)</li>
+                        <li>New Car Protection Package - From £180 (4 hours)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="bg-gray-800 py-12">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold primary-color mb-6">Our Portfolio</h2>
+            <p class="text-lg mb-6">Take a look at some of our recent work:</p>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <img src="https://via.placeholder.com/150" alt="Before" class="rounded shadow">
+                <img src="https://via.placeholder.com/150" alt="After" class="rounded shadow">
+                <img src="https://via.placeholder.com/150" alt="Before" class="rounded shadow">
+                <img src="https://via.placeholder.com/150" alt="After" class="rounded shadow">
             </div>
         </div>
     </section>
@@ -61,105 +122,46 @@
     <!-- Booking Section -->
     <section id="booking" class="py-12">
         <div class="container mx-auto text-center">
-            <h2 class="text-3xl font-bold mb-4">Book Now</h2>
+            <h2 class="text-3xl font-bold primary-color mb-4">Book Now</h2>
             <p class="text-lg mb-6">Choose a service, date, and time:</p>
-
-            <!-- Service Selection -->
             <div class="mb-6">
                 <label for="service" class="block text-lg font-bold mb-2">Select a Service</label>
                 <select id="service" class="w-full p-2 border rounded">
                     <option value="">-- Select a Service --</option>
-                    <option value="60">Maintenance Package (1 Hour)</option>
-                    <option value="90">Enhancement Package (1.5 Hours)</option>
-                    <option value="120">Ultimate Detail Package (2 Hours)</option>
-                    <option value="180">Showroom Finish Package (3 Hours)</option>
-                    <option value="180">New Car Protection Package (3 Hours)</option>
+                    <option value="120">Exterior Wash & Protection - £70</option>
+                    <option value="150">Interior Deep Clean - £70</option>
+                    <option value="270">Interior + Exterior Package - £125</option>
+                    <option value="360">Stage 1 Correction - £285</option>
+                    <option value="480">Stage 2 Correction - £380</option>
+                    <option value="120">1-Year Ceramic Coating - £70</option>
+                    <option value="120">2-Year Ceramic Coating - £100</option>
+                    <option value="30">Engine Bay Clean - £15</option>
+                    <option value="150">Maintenance Package - £90</option>
+                    <option value="240">Enhancement Package - £185</option>
+                    <option value="480">Preeminent Detail Package - £350</option>
+                    <option value="600">Showroom Finish Package - £450</option>
+                    <option value="240">New Car Protection Package - £180+</option>
                 </select>
             </div>
-
-            <!-- Calendar -->
             <div id="calendar" class="max-w-md mx-auto"></div>
-
-            <!-- Booking Form -->
             <form class="mt-6 max-w-md mx-auto">
                 <input type="hidden" id="selected-date" name="date">
                 <input type="hidden" id="selected-time" name="time">
                 <input type="hidden" id="selected-service" name="service">
-                <button type="submit" class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700" disabled id="confirm-booking">Confirm Booking</button>
+                <button type="submit" class="primary-bg text-white py-3 px-6 rounded hover:bg-gray-800 transition" disabled id="confirm-booking">Confirm Booking</button>
             </form>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="bg-gray-200 py-12">
+    <section id="contact" class="bg-gray-800 py-12">
         <div class="container mx-auto text-center">
-            <h2 class="text-3xl font-bold mb-4">Contact Us</h2>
-            <p>Email: <a href="mailto:info@mobiledetailing.com" class="text-blue-600 hover:underline">info@mobiledetailing.com</a></p>
-            <p>Phone: <a href="tel:+1234567890" class="text-blue-600 hover:underline">+1 234 567 890</a></p>
+            <h2 class="text-3xl font-bold primary-color mb-4">Contact Us</h2>
+            <p>Email: <a href="mailto:info@mobiledetailing.com" class="hover:underline">info@mobiledetailing.com</a></p>
+            <p>Phone: <a href="tel:+1234567890" class="hover:underline">+1 234 567 890</a></p>
         </div>
     </section>
 
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-    <script>
-        // Tab Functionality
-        const tabs = document.querySelectorAll(".tab-link");
-        const contents = document.querySelectorAll(".tab-content");
-
-        tabs.forEach(tab => {
-            tab.addEventListener("click", () => {
-                tabs.forEach(t => t.classList.remove("active"));
-                contents.forEach(c => c.classList.remove("active"));
-                tab.classList.add("active");
-                document.getElementById(tab.dataset.tab).classList.add("active");
-            });
-        });
-
-        // Example booked slots
-        const bookedSlots = ["2024-12-28 10:00", "2024-12-28 14:00"];
-        const serviceDropdown = document.getElementById("service");
-        const confirmButton = document.getElementById("confirm-booking");
-
-        const calendar = flatpickr("#calendar", {
-            inline: true,
-            enableTime: true,
-            dateFormat: "Y-m-d H:i",
-            disable: bookedSlots,
-            minDate: "today",
-            onChange: function(selectedDates, dateStr) {
-                document.getElementById("selected-date").value = dateStr.split(" ")[0];
-                document.getElementById("selected-time").value = dateStr.split(" ")[1];
-                enableConfirmButton();
-            },
-        });
-
-        // Adjust slots based on service duration
-        serviceDropdown.addEventListener("change", () => {
-            const duration = parseInt(serviceDropdown.value);
-            if (duration) {
-                const newDisabledSlots = calculateBlockedSlots(duration);
-                calendar.set("disable", [...bookedSlots, ...newDisabledSlots]);
-                document.getElementById("selected-service").value = serviceDropdown.options[serviceDropdown.selectedIndex].text;
-            }
-            enableConfirmButton();
-        });
-
-        function calculateBlockedSlots(duration) {
-            const blocked = [];
-            bookedSlots.forEach(slot => {
-                const startTime = new Date(slot);
-                const endTime = new Date(startTime.getTime() + duration * 60 * 1000);
-                for (let time = startTime; time < endTime; time.setMinutes(time.getMinutes() + 30)) {
-                    blocked.push(flatpickr.formatDate(time, "Y-m-d H:i"));
-                }
-            });
-            return blocked;
-        }
-
-        function enableConfirmButton() {
-            const serviceSelected = serviceDropdown.value !== "";
-            const dateSelected = document.getElementById("selected-date").value !== "";
-            confirmButton.disabled = !(serviceSelected && dateSelected);
-        }
-    </script>
 </body>
 </html>
