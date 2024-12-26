@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 </head>
 <body class="bg-gray-100">
+    <!-- Header -->
     <header class="bg-blue-600 text-white py-4">
         <div class="container mx-auto flex justify-between items-center">
             <h1 class="text-2xl font-bold">Mobile Detailing Pro</h1>
@@ -15,7 +16,6 @@
                 <ul class="flex space-x-4">
                     <li><a href="#home" class="hover:underline">Home</a></li>
                     <li><a href="#services" class="hover:underline">Services</a></li>
-                    <li><a href="#portfolio" class="hover:underline">Portfolio</a></li>
                     <li><a href="#booking" class="hover:underline">Book Now</a></li>
                     <li><a href="#contact" class="hover:underline">Contact</a></li>
                 </ul>
@@ -23,91 +23,148 @@
         </div>
     </header>
 
+    <!-- Home Section -->
+    <section id="home" class="bg-gray-200 py-12">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-4">Welcome to Mobile Detailing Pro</h2>
+            <p class="text-lg mb-6">Professional mobile detailing services delivered to your doorstep.</p>
+            <a href="#booking" class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700">Book Now</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-12">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-6">Our Packages</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Maintenance Package -->
+                <div class="border p-4 rounded shadow">
+                    <h3 class="text-2xl font-bold mb-2">Maintenance Package</h3>
+                    <p class="text-gray-700 mb-4">Ideal for Regular Clients</p>
+                    <ul class="text-left mb-4">
+                        <li>• Exterior Wash & Protection</li>
+                        <li>• Interior Refresh (vacuum, wipe down, glass clean)</li>
+                    </ul>
+                    <p class="font-bold mb-4">Price: £90</p>
+                </div>
+
+                <!-- Enhancement Package -->
+                <div class="border p-4 rounded shadow">
+                    <h3 class="text-2xl font-bold mb-2">Enhancement Package</h3>
+                    <p class="text-gray-700 mb-4">Add Protection & Shine</p>
+                    <ul class="text-left mb-4">
+                        <li>• Exterior Wash & Protection</li>
+                        <li>• Decontamination (fallout remover + clay bar treatment)</li>
+                        <li>• 1-Year Ceramic Coating</li>
+                    </ul>
+                    <p class="font-bold mb-4">Price: £185</p>
+                </div>
+
+                <!-- Ultimate Detail Package -->
+                <div class="border p-4 rounded shadow">
+                    <h3 class="text-2xl font-bold mb-2">Ultimate Detail Package</h3>
+                    <p class="text-gray-700 mb-4">Comprehensive Care</p>
+                    <ul class="text-left mb-4">
+                        <li>• Full Exterior Wash & Protection</li>
+                        <li>• Full Interior Deep Clean</li>
+                        <li>• Engine Bay Clean</li>
+                        <li>• Stage 1 Correction</li>
+                        <li>• 1-Year Ceramic Coating</li>
+                    </ul>
+                    <p class="font-bold mb-4">Price: £350</p>
+                </div>
+
+                <!-- Showroom Finish Package -->
+                <div class="border p-4 rounded shadow">
+                    <h3 class="text-2xl font-bold mb-2">Showroom Finish Package</h3>
+                    <p class="text-gray-700 mb-4">Premium Service</p>
+                    <ul class="text-left mb-4">
+                        <li>• Full Exterior Wash & Protection</li>
+                        <li>• Full Decontamination</li>
+                        <li>• Stage 2 Correction</li>
+                        <li>• 2-Year Ceramic Coating</li>
+                        <li>• Engine Bay Clean</li>
+                    </ul>
+                    <p class="font-bold mb-4">Price: £450</p>
+                </div>
+
+                <!-- New Car Protection Package -->
+                <div class="border p-4 rounded shadow">
+                    <h3 class="text-2xl font-bold mb-2">New Car Protection Package</h3>
+                    <p class="text-gray-700 mb-4">Perfect for New Cars</p>
+                    <ul class="text-left mb-4">
+                        <li>• Exterior Wash & Protection</li>
+                        <li>• Full Decontamination</li>
+                        <li>• Ceramic Coating (1 or 2 years)</li>
+                        <li>• Interior Protection (fabric/leather sealant)</li>
+                    </ul>
+                    <p class="font-bold mb-4">Price: £180 (1-Year Ceramic)<br>£220 (2-Year Ceramic)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Booking Section -->
     <section id="booking" class="py-12">
         <div class="container mx-auto text-center">
             <h2 class="text-3xl font-bold mb-4">Book Now</h2>
-            <p class="text-lg mb-6">Choose a date, time, and service:</p>
-
-            <!-- Service Selection -->
+            <p class="text-lg mb-6">Choose a package, date, and time:</p>
             <div class="mb-6">
-                <label for="service" class="block text-lg font-bold mb-2">Select a Service</label>
-                <select id="service" class="w-full p-2 border rounded">
-                    <option value="" data-duration="0">-- Select a Service --</option>
-                    <option value="exterior" data-duration="60">Exterior Detailing (1 hour)</option>
-                    <option value="interior" data-duration="90">Interior Detailing (1.5 hours)</option>
-                    <option value="paint" data-duration="120">Paint Correction (2 hours)</option>
-                    <option value="ceramic" data-duration="180">Ceramic Coating (3 hours)</option>
+                <label for="package" class="block text-lg font-bold mb-2">Select a Package</label>
+                <select id="package" class="w-full p-2 border rounded">
+                    <option value="0">-- Select a Package --</option>
+                    <option value="60">Maintenance Package (1 Hour)</option>
+                    <option value="90">Enhancement Package (1.5 Hours)</option>
+                    <option value="120">Ultimate Detail Package (2 Hours)</option>
+                    <option value="180">Showroom Finish Package (3 Hours)</option>
+                    <option value="180">New Car Protection Package (3 Hours)</option>
                 </select>
             </div>
 
-            <!-- Calendar -->
             <div id="calendar" class="max-w-md mx-auto"></div>
 
-            <!-- Booking Form -->
             <form class="mt-6 max-w-md mx-auto">
                 <input type="hidden" id="selected-date" name="date">
                 <input type="hidden" id="selected-time" name="time">
-                <input type="hidden" id="selected-service" name="service">
+                <input type="hidden" id="selected-package" name="package">
                 <button type="submit" class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700" disabled id="confirm-booking">Confirm Booking</button>
             </form>
         </div>
     </section>
 
+    <!-- Contact Section -->
+    <section id="contact" class="bg-gray-200 py-12">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-4">Contact Us</h2>
+            <p>Email: <a href="mailto:info@mobiledetailing.com" class="text-blue-600 hover:underline">info@mobiledetailing.com</a></p>
+            <p>Phone: <a href="tel:+1234567890" class="text-blue-600 hover:underline">+1 234 567 890</a></p>
+        </div>
+    </section>
+
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script>
-        const bookedSlots = [
-            "2024-12-28 10:00", 
-            "2024-12-28 14:00",
-            "2024-12-29 12:00"
-        ]; // Example booked slots
-
-        const serviceDropdown = document.getElementById("service");
+        const bookedSlots = ["2024-12-28 10:00", "2024-12-28 14:00"]; // Example booked slots
+        const packageDropdown = document.getElementById("package");
         const confirmButton = document.getElementById("confirm-booking");
         const calendar = flatpickr("#calendar", {
             inline: true,
             enableTime: true,
             dateFormat: "Y-m-d H:i",
-            minDate: "today",
             disable: bookedSlots,
-            onChange: (selectedDates, dateStr) => {
-                const [date, time] = dateStr.split(" ");
-                document.getElementById("selected-date").value = date;
-                document.getElementById("selected-time").value = time;
+            minDate: "today",
+            onChange: function(selectedDates, dateStr) {
+                document.getElementById("selected-date").value = dateStr.split(" ")[0];
+                document.getElementById("selected-time").value = dateStr.split(" ")[1];
                 enableConfirmButton();
             },
         });
 
-        // Adjust calendar to block overlapping times based on service duration
-        serviceDropdown.addEventListener("change", () => {
-            const selectedOption = serviceDropdown.options[serviceDropdown.selectedIndex];
-            const duration = parseInt(selectedOption.getAttribute("data-duration"));
-
-            if (duration > 0) {
-                const newDisabledSlots = calculateBlockedSlots(duration);
-                calendar.set("disable", [...bookedSlots, ...newDisabledSlots]);
-                document.getElementById("selected-service").value = selectedOption.text;
-            }
-
-            enableConfirmButton();
-        });
-
-        function calculateBlockedSlots(duration) {
-            const blocked = [];
-            bookedSlots.forEach(slot => {
-                const startTime = new Date(slot);
-                const endTime = new Date(startTime.getTime() + duration * 60 * 1000);
-                for (let time = startTime; time < endTime; time.setMinutes(time.getMinutes() + 30)) {
-                    blocked.push(flatpickr.formatDate(time, "Y-m-d H:i"));
-                }
-            });
-            return blocked;
-        }
+        packageDropdown.addEventListener("change", enableConfirmButton);
 
         function enableConfirmButton() {
-            const serviceSelected = serviceDropdown.value !== "";
+            const packageSelected = packageDropdown.value !== "0";
             const dateSelected = document.getElementById("selected-date").value !== "";
-            confirmButton.disabled = !(serviceSelected && dateSelected);
+            confirmButton.disabled = !(packageSelected && dateSelected);
         }
     </script>
 </body>
