@@ -6,6 +6,10 @@
     <title>Mobile Detailing Services</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <style>
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+    </style>
 </head>
 <body class="bg-gray-100">
     <!-- Header -->
@@ -22,12 +26,35 @@
         </div>
     </header>
 
-    <!-- Home Section -->
+    <!-- Home Section with Tabs -->
     <section id="home" class="bg-gray-200 py-12">
         <div class="container mx-auto text-center">
             <h2 class="text-4xl font-bold mb-4">Welcome to Mobile Detailing Pro</h2>
             <p class="text-lg mb-6">Professional mobile detailing services delivered to your doorstep.</p>
-            <a href="#booking" class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700">Book Now</a>
+            <div class="tabs">
+                <button class="tab-link active" data-tab="services">Services</button>
+                <button class="tab-link" data-tab="portfolio">Portfolio</button>
+            </div>
+            <div id="services" class="tab-content active">
+                <h3 class="text-3xl font-bold my-4">Our Services</h3>
+                <ul class="text-left mx-auto max-w-2xl">
+                    <li class="mb-2">• Maintenance Package</li>
+                    <li class="mb-2">• Enhancement Package</li>
+                    <li class="mb-2">• Ultimate Detail Package</li>
+                    <li class="mb-2">• Showroom Finish Package</li>
+                    <li class="mb-2">• New Car Protection Package</li>
+                </ul>
+            </div>
+            <div id="portfolio" class="tab-content">
+                <h3 class="text-3xl font-bold my-4">Our Portfolio</h3>
+                <p class="text-lg mb-6">Some of our best work:</p>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <img src="https://via.placeholder.com/150" alt="Before" class="rounded shadow">
+                    <img src="https://via.placeholder.com/150" alt="After" class="rounded shadow">
+                    <img src="https://via.placeholder.com/150" alt="Before" class="rounded shadow">
+                    <img src="https://via.placeholder.com/150" alt="After" class="rounded shadow">
+                </div>
+            </div>
         </div>
     </section>
 
@@ -74,11 +101,24 @@
 
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script>
-        // Example booked slots (replace with real data later)
-        const bookedSlots = ["2024-12-28 10:00", "2024-12-28 14:00"];
+        // Tab Functionality
+        const tabs = document.querySelectorAll(".tab-link");
+        const contents = document.querySelectorAll(".tab-content");
 
+        tabs.forEach(tab => {
+            tab.addEventListener("click", () => {
+                tabs.forEach(t => t.classList.remove("active"));
+                contents.forEach(c => c.classList.remove("active"));
+                tab.classList.add("active");
+                document.getElementById(tab.dataset.tab).classList.add("active");
+            });
+        });
+
+        // Example booked slots
+        const bookedSlots = ["2024-12-28 10:00", "2024-12-28 14:00"];
         const serviceDropdown = document.getElementById("service");
         const confirmButton = document.getElementById("confirm-booking");
+
         const calendar = flatpickr("#calendar", {
             inline: true,
             enableTime: true,
@@ -92,7 +132,7 @@
             },
         });
 
-        // Listen for service selection and adjust calendar
+        // Adjust slots based on service duration
         serviceDropdown.addEventListener("change", () => {
             const duration = parseInt(serviceDropdown.value);
             if (duration) {
