@@ -9,43 +9,61 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
     <script src="https://www.carqueryapi.com/js/carquery.0.3.4.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #0D0D0D;
-            color: #E5E5E5;
-        }
-        .primary-color {
-            color: #00C8D7;
-        }
-        .primary-bg {
-            background-color: #00C8D7;
-        }
-        img {
-            width: 100%;
-            height: auto;
-            object-fit: cover;
-        }
-        input, select, textarea {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border-radius: 5px;
-            background-color: #1F1F1F;
-            color: white;
-        }
-        #service-map {
-            width: 100%;
-            height: 400px;
-        }
-    </style>
+   <style>
+    /* Side Navigation Bar */
+    nav {
+        width: 200px;
+        background-color: #1a202c;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Logo Styling */
+    .logo {
+        width: 150px;
+        margin-bottom: 20px;
+    }
+
+    /* Navigation Links */
+    nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+    }
+
+    nav ul li {
+        margin: 15px 0;
+        text-align: center;
+    }
+
+    nav ul li a {
+        text-decoration: none;
+        color: #fff;
+        font-size: 16px;
+        display: block;
+        padding: 10px;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
+
+    nav ul li a:hover {
+        background-color: #2d3748;
+    }
+</style>
 </head>
 <body>
     <!-- Sidebar -->
     <div class="flex">
         <aside class="w-64 h-screen bg-gray-900 text-white fixed flex flex-col items-center py-6">
             <img src="full_trimmed_transparent_customcolor.png" alt="Preeminent Detailing Logo" class="logo">
-          <nav>
+           <nav>
     <img src="full_trimmed_transparent_customcolor.png" alt="Preeminent Logo" class="logo">
     <ul>
         <li><a href="#home">Home</a></li>
@@ -56,6 +74,7 @@
         <li><a href="#area">Our Area</a></li>
     </ul>
 </nav>
+
         </aside>
 
         <!-- Main Content -->
