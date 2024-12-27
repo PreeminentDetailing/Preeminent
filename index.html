@@ -185,7 +185,10 @@
 <!-- Booking Section -->
 <section id="booking" class="py-12">
     <div class="container mx-auto text-center">
-        <h2 class="text-3xl font-bold text-teal-400 mb-6">Book Your Detailing</h2>
+        <h2 class="text-3xl font-bold primary-color mb-6">Book Your Detailing</h2>
+
+        <form action="/submit-booking" method="POST" class="space-y-6">
+
 
         <!-- Service Selection -->
         <div class="mb-6">
@@ -206,108 +209,116 @@
             </select>
         </div>
 
-        <!-- Calendar -->
-        <div id="calendar"></div>
+            <!-- Date Picker -->
+            <div>
+                <label for="date" class="block text-lg font-semibold mb-2">Pick a Date:</label>
+                <input id="date" name="date" type="text" class="w-full max-w-md p-2 border border-gray-300 rounded" placeholder="Select a date">
+            </div>
+
+
+        <!-- Time Slots -->
+        <div class="mb-6">
+            <label for="time" class="block text-lg mb-2">Choose a Time:</label>
+            <select id="time" class="w-full max-w-md mx-auto px-4 py-2 rounded text-black">
+                <option value="7am">7:00 AM</option>
+                <option value="8am">8:00 AM</option>
+                <option value="9am">9:00 AM</option>
+                <option value="10am">10:00 AM</option>
+                <option value="11am">11:00 AM</option>
+                <option value="12pm">12:00 PM</option>
+                <option value="1pm">1:00 PM</option>
+                <option value="2pm">2:00 PM</option>
+                <option value="3pm">3:00 PM</option>
+                <option value="4pm">4:00 PM</option>
+                <option value="5pm">5:00 PM</option>
+            </select>
+        </div>
+
+        <!-- Vehicle Selection -->
+        <div class="mb-6">
+            <label for="vehicle" class="block text-lg mb-2">Select Vehicle Make:</label>
+            <select id="vehicle" class="w-full max-w-md mx-auto px-4 py-2 rounded text-black">
+                <option value="arbarth">Arbarth</option>
+                <option value="alfa romeo">Alfa Romeo</option>
+                <option value="aston martin">Aston Martin</option>
+                <option value="audi">Audi</option>
+                <option value="bmw">BMW</option>
+                <option value="byd">BYD</option>
+                <option value="citroen">Citroen</option>
+                <option value="dacia">Dacia</option>
+                <option value="ferrari">Ferrari</option>
+                <option value="fiat">Fiat</option>
+                <option value="ford">Ford</option>
+                <option value="honda">Honda</option>
+                <option value="hyundai">Hyundai</option>
+                <option value="jaguar">Jaguar</option>
+                <option value="jeep">Jeep</option>
+                <option value="kia">Kia</option>
+                <option value="lamborghini">Lamborghini</option>
+                <option value="land rover">Land Rover</option>
+                <option value="lexus">Lexus</option>
+                <option value="lotus">Lotus</option>
+                <option value="maserati">Maserati</option>
+                <option value="mazda">Mazda</option>
+                <option value="mercedes">Mercedes</option>
+                <option value="mini">Mini</option>
+                <option value="mitsubishi">Mitsubishi</option>
+                <option value="nissan">Nissan</option>
+                <option value="peugeot">Peugeot</option>
+                <option value="polestar">Polestar</option>
+                <option value="porsche">Porsche</option>
+                <option value="renault">Renault</option>
+                <option value="seat">Seat</option>
+                <option value="skoda">Skoda</option>
+                <option value="subaru">Subaru</option>
+                <option value="suzuki">Suzuki</option>
+                <option value="tesla">Tesla</option>
+                <option value="toyota">Toyota</option>
+                <option value="volkswagen">Volkswagen</option>
+                <option value="volvo">Volvo</option>
+            </select>
+        </div>
 
         <!-- Customer Details -->
-        <h3 class="text-xl font-bold text-teal-400 mt-8 mb-4">Customer Details</h3>
-        <form id="booking-form" class="w-1/2 mx-auto">
-            <input type="text" id="first-name" placeholder="First Name" required>
-            <input type="text" id="last-name" placeholder="Last Name" required>
-            <input type="text" id="address" placeholder="Address" required>
+            <div>
+                <label for="firstName" class="block text-lg font-semibold mb-2">First Name:</label>
+                <input id="firstName" name="firstName" type="text" class="w-full max-w-md p-2 border border-gray-300 rounded" placeholder="Enter your first name">
+            </div>
 
-            <!-- Vehicle Make and Model -->
-            <label for="vehicle" class="text-lg mb-2">Select Vehicle:</label>
-            <select id="vehicle-make" required>
-                <option value="">Select Make</option>
-                <option value="Audi">Audi</option>
-                <option value="BMW">BMW</option>
-                <option value="Mercedes">Mercedes</option>
-                <option value="Tesla">Tesla</option>
-            </select>
-            <input type="text" id="vehicle-model" placeholder="Enter Model" required>
+            <div>
+                <label for="lastName" class="block text-lg font-semibold mb-2">Last Name:</label>
+                <input id="lastName" name="lastName" type="text" class="w-full max-w-md p-2 border border-gray-300 rounded" placeholder="Enter your last name">
+            </div>
 
-            <!-- Payment Section -->
-            <button id="pay-button" type="button" class="primary-bg text-white py-3 px-6 rounded hover:bg-gray-800 transition mt-4">
+            <div>
+                <label for="address" class="block text-lg font-semibold mb-2">Address:</label>
+                <input id="address" name="address" type="text" class="w-full max-w-md p-2 border border-gray-300 rounded" placeholder="Enter your address">
+            </div>
+
+            <!-- Payment Button -->
+            <button type="submit" class="primary-bg text-white py-3 px-6 rounded hover:bg-gray-800 transition w-full max-w-md">
                 Pay 25% Deposit
             </button>
         </form>
     </div>
 </section>
 
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script>
-    // Initialize Stripe
-    const stripe = Stripe('your-stripe-public-key-here');
-
-    document.addEventListener('DOMContentLoaded', function() {
-        // FullCalendar Configuration
-        const calendarEl = document.getElementById('calendar');
-        const calendar = new FullCalendar.Calendar(calendarEl, {
-            initialView: 'timeGridWeek',
-            allDaySlot: false,
-            slotMinTime: '07:00:00',
-            slotMaxTime: '17:00:00',
-            slotDuration: '01:00:00',
-            selectable: true,
-            selectOverlap: false,
-            events: [
-                {
-                    title: 'Booked',
-                    start: '2024-12-28T10:00:00',
-                    end: '2024-12-28T11:00:00',
-                    color: 'red'
-                }
-            ],
-            select: function(info) {
-                document.getElementById('calendar').dataset.selectedSlot = info.startStr;
-                alert(`Selected slot: ${info.startStr}`);
+    flatpickr("#date", {
+        inline: true,
+        minDate: "today",
+        disable: [
+            function(date) {
+                // Example: Disable weekends
+                return (date.getDay() === 0 || date.getDay() === 6); 
             }
-        });
-        calendar.render();
-
-        // Payment Button Handler
-        const payButton = document.getElementById('pay-button');
-        payButton.addEventListener('click', async () => {
-            const service = document.getElementById('service').value;
-            const firstName = document.getElementById('first-name').value;
-            const lastName = document.getElementById('last-name').value;
-            const address = document.getElementById('address').value;
-            const vehicleMake = document.getElementById('vehicle-make').value;
-            const vehicleModel = document.getElementById('vehicle-model').value;
-            const selectedSlot = document.getElementById('calendar').dataset.selectedSlot;
-
-            if (!service || !firstName || !lastName || !address || !vehicleMake || !vehicleModel || !selectedSlot) {
-                alert('Please fill out all fields and select a slot!');
-                return;
-            }
-
-            // Redirect to Stripe Checkout
-            const { error } = await stripe.redirectToCheckout({
-                lineItems: [
-                    {
-                        price_data: {
-                            currency: 'gbp',
-                            product_data: {
-                                name: service,
-                                description: `Deposit for ${service}`
-                            },
-                            unit_amount: 2500 // 25% deposit of £100
-                        },
-                        quantity: 1
-                    }
-                ],
-                mode: 'payment',
-                successUrl: 'https://yourwebsite.com/success',
-                cancelUrl: 'https://yourwebsite.com/cancel',
-                payment_method_types: ['card', 'apple_pay', 'google_pay']
-            });
-
-            if (error) {
-                console.error('Payment failed:', error);
-            }
-        });
+        ],
+        enableTime: false,
+        dateFormat: "Y-m-d",
     });
 </script>
+
 
 <!-- Contact Section -->
 <section id="contact" class="py-12">
