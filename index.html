@@ -182,6 +182,133 @@
            </div>
 </section>
 
+<!-- Booking Section -->
+<section id="booking" class="py-12">
+    <div class="container mx-auto text-center">
+        <h2 class="text-3xl font-bold text-teal-400 mb-6">Book Your Detailing</h2>
+
+        <!-- Service Selection -->
+        <div class="mb-6">
+            <label for="service" class="text-lg mb-2">Choose a Service:</label>
+            <select id="service" class="block w-1/2 mx-auto py-2 px-4 bg-gray-800 text-white rounded">
+                <option value="Exterior Wash & Protection">Exterior Wash & Protection - £70</option>
+                <option value="Interior Deep Clean">Interior Deep Clean - £70</option>
+                <option value="Interior + Exterior Package">Interior + Exterior Package - £125</option>
+                <option value="Stage 1 Correction">Wash, Decontamination & Stage 1 Correction - £285</option>
+                <option value="Stage 2 Correction">Wash, Decontamination & Stage 2 Correction - £380</option>
+                <option value="1-Year Ceramic Coating">1-Year Ceramic Coating - £70</option>
+                <option value="2-Year Ceramic Coating">2-Year Ceramic Coating - £100</option>
+                <option value="Engine Bay Clean">Engine Bay Clean - £15</option>
+                <option value="Maintenance Package">Maintenance Package - £90</option>
+                <option value="Showroom Package">Showroom Package - £450</option>
+                <option value="New Car Protection Package">New Car Protection Package - From £180</option>
+                <option value="Preeminent Package">Preeminent Package - £350</option>
+            </select>
+        </div>
+
+        <!-- Calendar -->
+        <div id="calendar"></div>
+
+        <!-- Customer Details -->
+        <h3 class="text-xl font-bold text-teal-400 mt-8 mb-4">Customer Details</h3>
+        <form id="booking-form" class="w-1/2 mx-auto">
+            <input type="text" id="first-name" placeholder="First Name" required>
+            <input type="text" id="last-name" placeholder="Last Name" required>
+            <input type="text" id="address" placeholder="Address" required>
+
+            <!-- Vehicle Make and Model -->
+            <label for="vehicle" class="text-lg mb-2">Select Vehicle:</label>
+            <select id="vehicle-make" required>
+                <option value="">Select Make</option>
+                <option value="Audi">Audi</option>
+                <option value="BMW">BMW</option>
+                <option value="Mercedes">Mercedes</option>
+                <option value="Tesla">Tesla</option>
+            </select>
+            <input type="text" id="vehicle-model" placeholder="Enter Model" required>
+
+            <!-- Payment Section -->
+            <button id="pay-button" type="button" class="primary-bg text-white py-3 px-6 rounded hover:bg-gray-800 transition mt-4">
+                Pay 25% Deposit
+            </button>
+        </form>
+    </div>
+</section>
+
+<script>
+    // Initialize Stripe
+    const stripe = Stripe('your-stripe-public-key-here');
+
+    document.addEventListener('DOMContentLoaded', function() {
+        // FullCalendar Configuration
+        const calendarEl = document.getElementById('calendar');
+        const calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'timeGridWeek',
+            allDaySlot: false,
+            slotMinTime: '07:00:00',
+            slotMaxTime: '17:00:00',
+            slotDuration: '01:00:00',
+            selectable: true,
+            selectOverlap: false,
+            events: [
+                {
+                    title: 'Booked',
+                    start: '2024-12-28T10:00:00',
+                    end: '2024-12-28T11:00:00',
+                    color: 'red'
+                }
+            ],
+            select: function(info) {
+                document.getElementById('calendar').dataset.selectedSlot = info.startStr;
+                alert(`Selected slot: ${info.startStr}`);
+            }
+        });
+        calendar.render();
+
+        // Payment Button Handler
+        const payButton = document.getElementById('pay-button');
+        payButton.addEventListener('click', async () => {
+            const service = document.getElementById('service').value;
+            const firstName = document.getElementById('first-name').value;
+            const lastName = document.getElementById('last-name').value;
+            const address = document.getElementById('address').value;
+            const vehicleMake = document.getElementById('vehicle-make').value;
+            const vehicleModel = document.getElementById('vehicle-model').value;
+            const selectedSlot = document.getElementById('calendar').dataset.selectedSlot;
+
+            if (!service || !firstName || !lastName || !address || !vehicleMake || !vehicleModel || !selectedSlot) {
+                alert('Please fill out all fields and select a slot!');
+                return;
+            }
+
+            // Redirect to Stripe Checkout
+            const { error } = await stripe.redirectToCheckout({
+                lineItems: [
+                    {
+                        price_data: {
+                            currency: 'gbp',
+                            product_data: {
+                                name: service,
+                                description: `Deposit for ${service}`
+                            },
+                            unit_amount: 2500 // 25% deposit of £100
+                        },
+                        quantity: 1
+                    }
+                ],
+                mode: 'payment',
+                successUrl: 'https://yourwebsite.com/success',
+                cancelUrl: 'https://yourwebsite.com/cancel',
+                payment_method_types: ['card', 'apple_pay', 'google_pay']
+            });
+
+            if (error) {
+                console.error('Payment failed:', error);
+            }
+        });
+    });
+</script>
+
 <!-- Contact Section -->
 <section id="contact" class="py-12">
     <div class="container mx-auto text-center">
