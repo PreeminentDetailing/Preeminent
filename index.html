@@ -6,8 +6,6 @@
     <title>Preeminent Detailing</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <style>
         body {
             font-family: 'Montserrat', sans-serif;
@@ -26,15 +24,13 @@
         a:hover {
             color: #007a85;
         }
+        img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+        }
         .hidden {
             display: none;
-        }
-        .review-card {
-            background-color: #1C1C1C;
-            border: 1px solid #333;
-            border-radius: 8px;
-            padding: 16px;
-            margin-bottom: 16px;
         }
     </style>
 </head>
@@ -49,7 +45,6 @@
                     <li><a href="#services" class="hover:underline">Services</a></li>
                     <li><a href="#portfolio" class="hover:underline">Portfolio</a></li>
                     <li><a href="#booking" class="hover:underline">Book Now</a></li>
-                    <li><a href="#reviews" class="hover:underline">Reviews</a></li>
                     <li><a href="#contact" class="hover:underline">Contact</a></li>
                 </ul>
             </nav>
@@ -71,60 +66,59 @@
                 <div class="container mx-auto">
                     <h2 class="text-3xl font-bold primary-color mb-6 text-center">Our Services</h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        <!-- Add services -->
                         <div>
                             <h3 class="text-xl font-bold primary-color">Exterior Wash & Protection - £70</h3>
-                            <img src="Exterior.png" alt="Exterior Wash" class="w-24 h-24 mb-4 rounded">
+                            <img src="Exterior.png" alt="Exterior Wash">
                             <p>Snow foam pre-wash, wheels cleaned, hand wash, insect removal, and sealant application.</p>
                         </div>
                         <div>
                             <h3 class="text-xl font-bold primary-color">Interior Deep Clean - £70</h3>
-                            <img src="Interior.png" alt="Interior Deep Clean" class="w-24 h-24 mb-4 rounded">
+                            <img src="Interior.png" alt="Interior Deep Clean">
                             <p>Full vacuum, carpet shampoo, leather cleaning, plastic dressing, and glass cleaning.</p>
                         </div>
                         <div>
                             <h3 class="text-xl font-bold primary-color">Interior + Exterior Package - £125</h3>
-                            <img src="Interior Exterior.png" alt="Interior + Exterior" class="w-24 h-24 mb-4 rounded">
+                            <img src="Interior + Exterior.png" alt="Interior + Exterior">
                             <p>Combines both the Exterior Wash & Protection and Interior Deep Clean.</p>
                         </div>
                         <div>
                             <h3 class="text-xl font-bold primary-color">Wash, Decontamination & Stage 1 Correction - £285</h3>
-                            <img src="Stage1.png" alt="Stage 1 Correction" class="w-24 h-24 mb-4 rounded">
+                            <img src="Stage 1.png" alt="Stage 1 Correction">
                             <p>Removes light swirls and enhances gloss using fallout remover, clay bar, and fine polishing.</p>
                         </div>
                         <div>
                             <h3 class="text-xl font-bold primary-color">Wash, Decontamination & Stage 2 Correction - £380</h3>
-                            <img src="Stage2.png" alt="Stage 2 Correction" class="w-24 h-24 mb-4 rounded">
+                            <img src="Stage 2.png" alt="Stage 2 Correction">
                             <p>Removes heavier swirls and scratches with advanced cutting and polishing.</p>
                         </div>
                         <div>
                             <h3 class="text-xl font-bold primary-color">1-Year Ceramic Coating - £70</h3>
-                            <img src="Ceramic1.png" alt="1-Year Ceramic Coating" class="w-24 h-24 mb-4 rounded">
+                            <img src="Ceramic Coating.png" alt="1-Year Ceramic Coating">
                             <p>Enhanced gloss and hydrophobic protection lasting up to 12 months.</p>
                         </div>
                         <div>
                             <h3 class="text-xl font-bold primary-color">2-Year Ceramic Coating - £100</h3>
-                            <img src="Ceramic2.png" alt="2-Year Ceramic Coating" class="w-24 h-24 mb-4 rounded">
+                            <img src="2 Year Ceramic Coating.png" alt="2-Year Ceramic Coating">
                             <p>Longer-lasting gloss and hydrophobic protection for up to 24 months.</p>
                         </div>
                         <div>
                             <h3 class="text-xl font-bold primary-color">Maintenance Package - £90</h3>
-                            <img src="Maintenance.png" alt="Maintenance Package" class="w-24 h-24 mb-4 rounded">
+                            <img src="Maintenance Package.jpg" alt="Maintenance Package">
                             <p>Regular upkeep with an exterior wash and interior refresh.</p>
                         </div>
                         <div>
                             <h3 class="text-xl font-bold primary-color">Preeminent Detail Package - £350</h3>
-                            <img src="Preeminent.png" alt="Preeminent Detail Package" class="w-24 h-24 mb-4 rounded">
+                            <img src="Preeminent Package.webp" alt="Preeminent Detail Package">
                             <p>Comprehensive detailing including wash, deep clean, engine bay cleaning, and ceramic coating.</p>
                         </div>
                         <div>
                             <h3 class="text-xl font-bold primary-color">Showroom Finish Package - £450</h3>
-                            <img src="Showroom.png" alt="Showroom Finish Package" class="w-24 h-24 mb-4 rounded">
+                            <img src="Showroom Package.png" alt="Showroom Finish Package">
                             <p>Advanced correction and protection for a pristine showroom finish.</p>
                         </div>
                         <div>
                             <h3 class="text-xl font-bold primary-color">New Car Protection Package - Starting at £180</h3>
-                            <img src="NewCar.png" alt="New Car Protection Package" class="w-24 h-24 mb-4 rounded">
+                            <img src="new car protection package.png" alt="New Car Protection Package">
                             <p>Decontamination and ceramic coating to protect and enhance your new car.</p>
                         </div>
                     </div>
@@ -135,62 +129,22 @@
             <section id="booking" class="py-12">
                 <div class="container mx-auto text-center">
                     <h2 class="text-3xl font-bold primary-color mb-6">Book Your Detailing</h2>
-                    <div class="bg-gray-800 p-6 rounded">
-                        <form id="booking-form" action="https://example-payment-gateway.com/pay" method="POST">
-                            <label for="service" class="block text-left mb-2">Choose a Service:</label>
-                            <select id="service" name="service" class="w-full mb-4 p-2 rounded bg-gray-700 text-white">
-                                <option value="Exterior Wash">Exterior Wash & Protection - £70</option>
-                                <option value="Interior Clean">Interior Deep Clean - £70</option>
-                                <option value="Interior Exterior Package">Interior + Exterior Package - £125</option>
-                                <option value="Stage 1 Correction">Wash, Decontamination & Stage 1 Correction - £285</option>
-                                <option value="Stage 2 Correction">Wash, Decontamination & Stage 2 Correction - £380</option>
-                                <option value="1 Year Ceramic">1-Year Ceramic Coating - £70</option>
-                                <option value="2 Year Ceramic">2-Year Ceramic Coating - £100</option>
-                                <option value="Maintenance Package">Maintenance Package - £90</option>
-                                <option value="Preeminent Package">Preeminent Detail Package - £350</option>
-                                <option value="Showroom Finish Package">Showroom Finish Package - £450</option>
-                                <option value="New Car Package">New Car Protection Package - Starting at £180</option>
-                            </select>
-                            <label for="date" class="block text-left mb-2">Choose a Date:</label>
-                            <input id="date" name="date" class="w-full mb-4 p-2 rounded bg-gray-700 text-white" placeholder="Pick a date">
-                            <label for="time" class="block text-left mb-2">Choose a Time:</label>
-                            <select id="time" name="time" class="w-full mb-4 p-2 rounded bg-gray-700 text-white">
-                                <option value="09:00">09:00 AM</option>
-                                <option value="10:00">10:00 AM</option>
-                                <option value="11:00">11:00 AM</option>
-                                <option value="12:00">12:00 PM</option>
-                                <option value="13:00">1:00 PM</option>
-                                <option value="14:00">2:00 PM</option>
-                                <option value="15:00">3:00 PM</option>
-                                <option value="16:00">4:00 PM</option>
-                                <option value="17:00">5:00 PM</option>
-                            </select>
-                            <label for="details" class="block text-left mb-2">Enter Your Vehicle Details:</label>
-                            <textarea id="details" name="details" class="w-full mb-4 p-2 rounded bg-gray-700 text-white" placeholder="Car make, model, and address"></textarea>
-                            <button type="submit" class="primary-bg text-white py-2 px-6 rounded hover:bg-gray-800 transition">Pay 25% Deposit</button>
-                        </form>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Reviews Section -->
-            <section id="reviews" class="py-12">
-                <div class="container mx-auto">
-                    <h2 class="text-3xl font-bold primary-color mb-6 text-center">Customer Reviews</h2>
-                    <div id="reviews-list">
-                        <div class="review-card">
-                            <h3 class="font-bold primary-color">John D.</h3>
-                            <p>"Fantastic service, my car looks brand new!"</p>
-                        </div>
-                        <div class="review-card">
-                            <h3 class="font-bold primary-color">Sarah P.</h3>
-                            <p>"Highly professional and convenient!"</p>
-                        </div>
-                    </div>
-                    <form id="review-form" class="mt-6">
-                        <h3 class="text-xl font-bold primary-color">Leave a Review</h3>
-                        <textarea class="w-full mb-4 p-2 rounded bg-gray-700 text-white" placeholder="Your review"></textarea>
-                        <button class="primary-bg text-white py-2 px-6 rounded hover:bg-gray-800 transition">Submit</button>
+                    <form action="https://example-payment-gateway.com" method="POST" class="bg-gray-800 p-6 rounded">
+                        <label for="service" class="block mb-4">Choose a Service:</label>
+                        <select id="service" name="service" class="w-full p-2 mb-4 rounded bg-gray-700 text-white">
+                            <option value="Exterior Wash">Exterior Wash & Protection - £70</option>
+                            <option value="Interior Deep Clean">Interior Deep Clean - £70</option>
+                            <option value="Interior + Exterior">Interior + Exterior Package - £125</option>
+                            <option value="Stage 1 Correction">Stage 1 Correction - £285</option>
+                            <option value="Stage 2 Correction">Stage 2 Correction - £380</option>
+                            <option value="1-Year Ceramic">1-Year Ceramic Coating - £70</option>
+                            <option value="2-Year Ceramic">2-Year Ceramic Coating - £100</option>
+                            <option value="Maintenance">Maintenance Package - £90</option>
+                            <option value="Preeminent">Preeminent Detail Package - £350</option>
+                            <option value="Showroom Finish">Showroom Finish Package - £450</option>
+                            <option value="New Car">New Car Protection Package - £180+</option>
+                        </select>
+                        <button type="submit" class="primary-bg text-white py-2 px-6 rounded hover:bg-gray-800 transition">Pay 25% Deposit</button>
                     </form>
                 </div>
             </section>
@@ -199,45 +153,27 @@
             <section id="contact" class="py-12">
                 <div class="container mx-auto text-center">
                     <h2 class="text-3xl font-bold primary-color mb-6">Contact Us</h2>
-                    <div class="flex flex-col space-y-6 items-center">
-                        <a href="https://www.tiktok.com/@thepreeminentdetail?_t=8lMn4E8t3ZJ&_r=1" target="_blank" class="flex items-center space-x-4">
+                    <div class="space-y-6">
+                        <a href="https://www.tiktok.com/@thepreeminentdetail" target="_blank" class="flex items-center justify-center space-x-4">
                             <img src="https://cdn-icons-png.flaticon.com/512/3046/3046122.png" alt="TikTok Logo" class="h-8 w-8">
                             <span>Follow us on TikTok</span>
                         </a>
-                        <a href="https://www.instagram.com/thepreeminentdetail?igsh=MmYyYzNmZGVxeXN0&utm_source=qr" target="_blank" class="flex items-center space-x-4">
+                        <a href="https://www.instagram.com/thepreeminentdetail" target="_blank" class="flex items-center justify-center space-x-4">
                             <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram Logo" class="h-8 w-8">
                             <span>Follow us on Instagram</span>
                         </a>
-                        <a href="mailto:thepreeminentdetail@gmail.com" class="flex items-center space-x-4">
-                            <img src="https://cdn-icons-png.flaticon.com/512/5968/5968534.png" alt="Gmail Logo" class="h-8 w-8">
+                        <a href="mailto:thepreeminentdetail@gmail.com" class="flex items-center justify-center space-x-4">
+                            <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Gmail Logo" class="h-8 w-8">
                             <span>Email: thepreeminentdetail@gmail.com</span>
                         </a>
-                        <a href="https://wa.me/447899220840" target="_blank" class="flex items-center space-x-4">
-                            <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp Logo" class="h-8 w-8">
+                        <a href="https://wa.me/447899220840" class="flex items-center justify-center space-x-4">
+                            <img src="https://cdn-icons-png.flaticon.com/512/124/124034.png" alt="WhatsApp Logo" class="h-8 w-8">
                             <span>WhatsApp: 07899220840</span>
                         </a>
                     </div>
-                    <iframe src="https://www.google.com/maps/d/embed?mid=1yVLKkgQMj_zB_AjoP7xYz_4IglfB3Jw&ehbc=2E312F" width="600" height="450" class="mt-6" allowfullscreen></iframe>
                 </div>
             </section>
         </main>
     </div>
-
-    <script>
-        flatpickr("#date", {
-            enableTime: false,
-            dateFormat: "Y-m-d",
-            minDate: "today"
-        });
-
-        function toggleDetails(id) {
-            const element = document.getElementById(id);
-            if (element.classList.contains('hidden')) {
-                element.classList.remove('hidden');
-            } else {
-                element.classList.add('hidden');
-            }
-        }
-    </script>
 </body>
 </html>
