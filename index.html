@@ -190,6 +190,18 @@
         <form action="/submit-booking" method="POST" class="space-y-6">
 
 
+<!-- Calendly Embed -->
+<div id="calendly-booking" style="height: 700px; width: 100%; margin: 20px 0;"></div>
+<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript"></script>
+<script type="text/javascript">
+    Calendly.initInlineWidget({
+        url: 'https://calendly.com/thepreeminentdetail', <!-- Replace with your Calendly link -->
+        parentElement: document.getElementById('calendly-booking'),
+        prefill: {},
+        utm: {}
+    });
+</script>
+
         <!-- Service Selection -->
         <div class="mb-6">
             <label for="service" class="text-lg mb-2">Choose a Service:</label>
