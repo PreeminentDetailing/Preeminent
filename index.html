@@ -6,205 +6,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Preeminent Detailing</title>
-
-    <!-- Fonts and Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
-    <!-- Styles -->
     <link rel="stylesheet" href="styles.css">
-
-    <!-- Scripts -->
     <script src="scripts.js" defer></script>
-
-    <!-- Favicon -->
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 
 <body>
-    <!-- The rest of the content goes here -->
+
+    <!-- Sidebar Navigation -->
+    <nav style="width: 200px; background-color: #1a1a1a; height: 100vh; position: fixed; top: 0; left: 0; display: flex; flex-direction: column; align-items: center; padding: 20px;">
+        <img src="full_trimmed_transparent_customcolor.png" alt="Preeminent Logo" style="width: 150px; margin-bottom: 20px;">
+        <ul style="list-style: none; padding: 0; width: 100%; text-align: center;">
+            <li style="margin-bottom: 15px;"><a href="#home" style="color: #fff; text-decoration: none;">Home</a></li>
+            <li style="margin-bottom: 15px;"><a href="#services" style="color: #fff; text-decoration: none;">Services</a></li>
+            <li style="margin-bottom: 15px;"><a href="#portfolio" style="color: #fff; text-decoration: none;">Portfolio</a></li>
+            <li style="margin-bottom: 15px;"><a href="#booking" style="color: #fff; text-decoration: none;">Book Now</a></li>
+            <li style="margin-bottom: 15px;"><a href="#contact" style="color: #fff; text-decoration: none;">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div style="margin-left: 200px; padding: 20px;">
+
+        <!-- Home Section -->
+        <header id="home" style="margin-bottom: 40px;">
+            <h1>Welcome to Preeminent Detailing</h1>
+            <p>Your premium mobile detailing service.</p>
+        </header>
+
+        <!-- Services Section -->
+        <section id="services" style="margin-bottom: 40px;">
+            <h2>Our Services</h2>
+            <div>
+                <div>
+                    <h3>Exterior Wash & Protection</h3>
+                    <p>Details about the service.</p>
+                </div>
+                <!-- Add more services here -->
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" style="margin-bottom: 40px;">
+            <h2>Contact Us</h2>
+            <p>Email: <a href="mailto:thepreeminentdetail@gmail.com">thepreeminentdetail@gmail.com</a></p>
+            <p>Phone: 07899220840</p>
+        </section>
+
+    </div>
+
 </body>
 
-</html>
-
-
-  <!-- Navigation Bar -->
-<nav style="width: 200px; background-color: #1a1a1a; height: 100vh; position: fixed; top: 0; left: 0; display: flex; flex-direction: column; align-items: center; padding: 20px; box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);">
-    <!-- Logo Section -->
-    <img src="full_trimmed_transparent_customcolor.png" alt="Preeminent Logo" style="width: 150px; height: auto; margin-bottom: 30px;">
-
-    <!-- Navigation Links -->
-    <ul style="list-style: none; padding: 0; margin: 0; width: 100%;">
-        <li style="margin-bottom: 15px; text-align: center;">
-            <a href="#home" style="color: #fff; text-decoration: none; font-size: 16px; display: block; padding: 10px; border-radius: 5px; transition: background 0.3s;">Home</a>
-        </li>
-        <li style="margin-bottom: 15px; text-align: center;">
-            <a href="#services" style="color: #fff; text-decoration: none; font-size: 16px; display: block; padding: 10px; border-radius: 5px; transition: background 0.3s;">Services</a>
-        </li>
-        <li style="margin-bottom: 15px; text-align: center;">
-            <a href="#portfolio" style="color: #fff; text-decoration: none; font-size: 16px; display: block; padding: 10px; border-radius: 5px; transition: background 0.3s;">Portfolio</a>
-        </li>
-        <li style="margin-bottom: 15px; text-align: center;">
-            <a href="#booking" style="color: #fff; text-decoration: none; font-size: 16px; display: block; padding: 10px; border-radius: 5px; transition: background 0.3s;">Book Now</a>
-        </li>
-        <li style="margin-bottom: 15px; text-align: center;">
-            <a href="#contact" style="color: #fff; text-decoration: none; font-size: 16px; display: block; padding: 10px; border-radius: 5px; transition: background 0.3s;">Contact</a>
-        </li>
-        <li style="text-align: center;">
-            <a href="#area" style="color: #fff; text-decoration: none; font-size: 16px; display: block; padding: 10px; border-radius: 5px; transition: background 0.3s;">Our Area</a>
-        </li>
-    </ul>
-</nav>
-
-    <!-- Home Section -->
-    <header id="home">
-        <div>
-            <h1>Unleash Your Car's True Potential!</h1>
-            <p>Welcome to Preeminent Detailing – Where Excellence Meets Elegance.Transform your vehicle with precision and care.</p>
-            <button onclick="window.location='#booking'">Book Now</button>
-        </div>
-    </header>
-
-
-
-
-    <!-- Services Section -->
-    <section id="services" class="py-12">
-    <div class="container mx-auto">
-        <h2 class="text-3xl font-bold primary-color mb-6 text-center">Our Services</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div>
-                <h3 class="text-xl font-bold primary-color">Exterior Wash & Protection - £70</h3>
-                <img src="Exterior.png" alt="Exterior Wash">
-                <p>Snow foam pre-wash, wheels cleaned, hand wash, insect removal, and sealant application.</p>
-            </div>
-            <div>
-                <h3 class="text-xl font-bold primary-color">Interior Deep Clean - £70</h3>
-                <img src="Interior.png" alt="Interior Deep Clean">
-                <p>Full vacuum, carpet shampoo, leather cleaning, plastic dressing, and glass cleaning.</p>
-            </div>
-            <div>
-                <h3 class="text-xl font-bold primary-color">Interior + Exterior Package - £125</h3>
-                <img src="Interior + Exterior.png" alt="Interior + Exterior Package">
-                <p>Includes both the Exterior Wash & Protection and Interior Deep Clean.</p>
-            </div>
-            <div>
-                <h3 class="text-xl font-bold primary-color">Wash, Decontamination & Stage 1 Correction - £285</h3>
-                <img src="Stage 1.png" alt="Stage 1 Correction">
-                <p>Full exterior wash, decontamination, and Stage 1 paint correction for enhanced gloss.</p>
-            </div>
-            <div>
-                <h3 class="text-xl font-bold primary-color">Wash, Decontamination & Stage 2 Correction - £380</h3>
-                <img src="Stage 2.png" alt="Stage 2 Correction">
-                <p>Full exterior wash, decontamination, and Stage 2 correction for deeper scratch removal.</p>
-            </div>
-            <div>
-                <h3 class="text-xl font-bold primary-color">1-Year Ceramic Coating - £70</h3>
-                <img src="Ceramic Coating.png" alt="1-Year Ceramic Coating">
-                <p>Enhanced gloss and hydrophobic protection with 12-month durability.</p>
-            </div>
-            <div>
-                <h3 class="text-xl font-bold primary-color">2-Year Ceramic Coating - £100</h3>
-                <img src="2 Year Ceramic Coating.png" alt="2-Year Ceramic Coating">
-                <p>Premium ceramic coating with enhanced gloss and 24-month durability.</p>
-            </div>
-            <div>
-                <h3 class="text-xl font-bold primary-color">Engine Bay Clean - £15</h3>
-                <img src="Engine Bay.png" alt="Engine Bay Clean">
-                <p>Degreasing, steam cleaning, and plastics dressed for a factory finish.</p>
-            </div>
-            <div>
-                <h3 class="text-xl font-bold primary-color">Maintenance Package - £90</h3>
-                <img src="Maintenance Package.jpg" alt="Maintenance Package">
-                <p>Includes an exterior wash and protection with an interior refresh.</p>
-            </div>
-            <div>
-                <h3 class="text-xl font-bold primary-color">Showroom Package - £450</h3>
-                <img src="Showroom Package.png" alt="Showroom Package">
-                <p>Full detailing with decontamination, stage 2 correction, and 2-year ceramic coating.</p>
-            </div>
-            <div>
-                <h3 class="text-xl font-bold primary-color">New Car Protection Package - Starting at £180</h3>
-                <img src="new car protection package.png" alt="New Car Protection Package">
-                <p>Exterior wash, decontamination, and ceramic coating for new vehicles.</p>
-            </div>
-            <div>
-                <h3 class="text-xl font-bold primary-color">Preeminent Package - £350</h3>
-                <img src="Preeminent Package.webp" alt="Preeminent Package" class="w-full h-auto">
-                <p>Full exterior wash, full interior deep clean, engine bay clean, Stage 1 correction, and 1-year ceramic coating.</p>
-            </div>
-           </div>
-</section>
-
-
-
-
-
-    <!-- Portfolio Section -->
-    <section id="portfolio">
-        <h2>Portfolio</h2>
-        <p>Showcase of our best work.</p>
-        <div class="gallery">
-            <!-- Add images here -->
-        </div>
-    </section>
-
-
-
-
-    <!-- Booking Section -->
-    <section id="booking">
-        <h2>Book Your Detailing</h2>
-        <form>
-            <label for="service">Choose a Service:</label>
-            <select id="service" name="service">
-                <!-- Services will be dynamically added -->
-            </select>
-
-            <label for="date">Select a Date:</label>
-            <input type="date" id="date" name="date">
-
-            <label for="time">Choose a Time:</label>
-            <select id="time" name="time">
-                <!-- Time slots will be dynamically added -->
-            </select>
-
-            <label for="vehicle">Vehicle Make & Model:</label>
-            <input type="text" id="vehicle" name="vehicle">
-
-            <button type="submit">Pay 25% Deposit</button>
-        </form>
-    </section>
-
-
-
-
-    <!-- Contact Section -->
-    <section id="contact">
-        <h2>Contact Us</h2>
-        <p>Follow us on:</p>
-        <a href="https://tiktok.com/@thepreeminentdetail?_t=8lMn4E8t3ZJ&_r=1" target="_blank">TikTok</a>
-        <a href="https://instagram.com/thepreeminentdetail?igsh=MmYyYzNmZGVxeXN0&utm_source=qr" target="_blank">Instagram</a>
-        <p>Email: <a href="mailto:thepreeminentdetail@gmail.com">thepreeminentdetail@gmail.com</a></p>
-        <p>WhatsApp: <a href="tel:07899220840">07899220840</a></p>
-    </section>
-
-
-
-
-    <!-- Our Area Section -->
-    <section id="area">
-        <h2>Our Area</h2>
-        <p>We proudly serve Northamptonshire, Bedfordshire, Cambridgeshire, Luton, Peterborough, Leicestershire, and Birmingham.</p>
-        <div id="map">
-            <!-- Google Map integration goes here -->
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2024 Preeminent Detailing</p>
-    </footer>
-
-</body>
 </html>
