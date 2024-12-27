@@ -71,7 +71,7 @@
                 <div class="container mx-auto">
                     <h2 class="text-3xl font-bold primary-color mb-6 text-center">Our Services</h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        <!-- Add services here with images (from previous implementation) -->
+                        <!-- Add services here -->
                         <div>
                             <h3 class="text-xl font-bold primary-color">Exterior Wash & Protection - £70</h3>
                             <img src="Exterior.png" alt="Exterior Wash" class="w-24 h-24 mb-4 rounded">
@@ -80,7 +80,7 @@
                             <h3 class="text-xl font-bold primary-color">Interior Deep Clean - £70</h3>
                             <img src="Interior.png" alt="Interior Deep Clean" class="w-24 h-24 mb-4 rounded">
                         </div>
-                        <!-- Add other services as needed -->
+                        <!-- Add other services -->
                     </div>
                 </div>
             </section>
@@ -95,15 +95,29 @@
                             <select id="service" name="service" class="w-full mb-4 p-2 rounded bg-gray-700 text-white">
                                 <option value="Exterior Wash">Exterior Wash & Protection - £70</option>
                                 <option value="Interior Clean">Interior Deep Clean - £70</option>
-                                <!-- Add other services -->
+                                <option value="Interior Exterior Package">Interior + Exterior Package - £125</option>
+                                <option value="Stage 1 Correction">Wash, Decontamination & Stage 1 Correction - £285</option>
+                                <option value="Stage 2 Correction">Wash, Decontamination & Stage 2 Correction - £380</option>
+                                <option value="1 Year Ceramic">1-Year Ceramic Coating - £70</option>
+                                <option value="2 Year Ceramic">2-Year Ceramic Coating - £100</option>
+                                <option value="Maintenance Package">Maintenance Package - £90</option>
+                                <option value="Preeminent Package">Preeminent Detail Package - £350</option>
+                                <option value="Showroom Finish Package">Showroom Finish Package - £450</option>
+                                <option value="New Car Package">New Car Protection Package - Starting at £180</option>
                             </select>
                             <label for="date" class="block text-left mb-2">Choose a Date:</label>
                             <input id="date" name="date" class="w-full mb-4 p-2 rounded bg-gray-700 text-white" placeholder="Pick a date">
                             <label for="time" class="block text-left mb-2">Choose a Time:</label>
                             <select id="time" name="time" class="w-full mb-4 p-2 rounded bg-gray-700 text-white">
                                 <option value="09:00">09:00 AM</option>
+                                <option value="10:00">10:00 AM</option>
                                 <option value="11:00">11:00 AM</option>
-                                <!-- Add more slots -->
+                                <option value="12:00">12:00 PM</option>
+                                <option value="13:00">1:00 PM</option>
+                                <option value="14:00">2:00 PM</option>
+                                <option value="15:00">3:00 PM</option>
+                                <option value="16:00">4:00 PM</option>
+                                <option value="17:00">5:00 PM</option>
                             </select>
                             <label for="details" class="block text-left mb-2">Enter Your Vehicle Details:</label>
                             <textarea id="details" name="details" class="w-full mb-4 p-2 rounded bg-gray-700 text-white" placeholder="Car make, model, and address"></textarea>
@@ -118,7 +132,6 @@
                 <div class="container mx-auto">
                     <h2 class="text-3xl font-bold primary-color mb-6 text-center">Customer Reviews</h2>
                     <div id="reviews-list">
-                        <!-- Dynamically load reviews here -->
                         <div class="review-card">
                             <h3 class="font-bold primary-color">John D.</h3>
                             <p>"Fantastic service, my car looks brand new!"</p>
