@@ -7,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-    <script src="https://www.carqueryapi.com/js/carquery.0.3.4.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -20,54 +20,52 @@
         .primary-bg {
             background-color: #00C8D7;
         }
-        a {
-            color: #00C8D7;
+        img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
         }
-        a:hover {
-            color: #007a85;
+        .progress-bar {
+            display: flex;
+            margin-bottom: 20px;
         }
-        img.logo {
-            height: 120px;
-            margin-bottom: 1rem;
-            object-fit: contain;
-            position: relative;
-        }
-        img.logo::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.2));
-            animation: light-sweep 3s infinite;
-        }
-        @keyframes light-sweep {
-            0% {
-                left: -100%;
-            }
-            100% {
-                left: 100%;
-            }
-        }
-        input, select, textarea {
-            width: 100%;
+        .progress-step {
+            flex: 1;
             padding: 10px;
-            margin-bottom: 10px;
-            border-radius: 5px;
-            background-color: #1F1F1F;
-            color: white;
+            text-align: center;
+            border-right: 2px solid white;
         }
-        h2, h3 {
-            font-size: 1.8rem;
+        .progress-step.active {
+            background-color: #00C8D7;
+            color: #FFF;
         }
-        h2 {
-            font-size: 2.4rem;
+        .carousel {
+            display: flex;
+            overflow: hidden;
+            width: 100%;
+        }
+        .carousel-card {
+            min-width: 300px;
+            margin: 10px;
+            padding: 20px;
+            background: #1F1F1F;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .carousel-container {
+            display: flex;
+            animation: slide 10s infinite;
+        }
+        @keyframes slide {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-100%); }
+            50% { transform: translateX(-200%); }
+            75% { transform: translateX(-300%); }
+            100% { transform: translateX(0); }
         }
     </style>
 </head>
 <body>
-    <!-- Sidebar -->
     <div class="flex">
         <aside class="w-64 h-screen bg-gray-900 text-white fixed flex flex-col items-center py-6">
             <img src="full_trimmed_transparent_customcolor.png" alt="Preeminent Detailing Logo" class="logo">
@@ -75,8 +73,8 @@
                 <ul class="space-y-6 text-lg">
                     <li><a href="#home" class="hover:underline">Home</a></li>
                     <li><a href="#services" class="hover:underline">Services</a></li>
-                    <li><a href="#portfolio" class="hover:underline">Portfolio</a></li>
                     <li><a href="#booking" class="hover:underline">Book Now</a></li>
+                    <li><a href="#reviews" class="hover:underline">Reviews</a></li>
                     <li><a href="#contact" class="hover:underline">Contact</a></li>
                 </ul>
             </nav>
@@ -88,17 +86,16 @@
             <section id="booking" class="py-12">
                 <div class="container mx-auto text-center">
                     <h2 class="text-3xl font-bold primary-color mb-6">Book Your Detailing</h2>
+                    <div class="progress-bar">
+                        <div class="progress-step active">Step 1: Service</div>
+                        <div class="progress-step">Step 2: Date & Time</div>
+                        <div class="progress-step">Step 3: Payment</div>
+                    </div>
                     <form action="https://example-payment-gateway.com" method="POST" class="bg-gray-800 p-6 rounded">
                         <label for="service" class="block mb-4">Choose a Service:</label>
                         <select id="service" name="service" class="w-full p-2 mb-4 rounded bg-gray-700 text-white">
                             <option value="Exterior Wash">Exterior Wash & Protection - £70</option>
-                            <option value="Interior Deep Clean">Interior Deep Clean - £70</option>
-                            <option value="Interior + Exterior">Interior + Exterior Package - £125</option>
-                            <option value="Stage 1 Correction">Stage 1 Correction - £285</option>
-                            <option value="Stage 2 Correction">Stage 2 Correction - £380</option>
-                            <option value="1-Year Ceramic">1-Year Ceramic Coating - £70</option>
-                            <option value="2-Year Ceramic">2-Year Ceramic Coating - £100</option>
-                            <option value="Preeminent">Preeminent Detail Package - £350</option>
+                            <!-- Add all services -->
                         </select>
 
                         <label for="date" class="block mb-4">Select a Date:</label>
@@ -107,26 +104,38 @@
                         <label for="time" class="block mb-4">Choose a Time:</label>
                         <select id="time" name="time" class="w-full p-2 mb-4 rounded bg-gray-700 text-white">
                             <option value="7:00 AM">7:00 AM</option>
-                            <option value="8:00 AM">8:00 AM</option>
-                            <option value="9:00 AM">9:00 AM</option>
-                            <option value="10:00 AM">10:00 AM</option>
-                            <option value="11:00 AM">11:00 AM</option>
-                            <option value="12:00 PM">12:00 PM</option>
-                            <option value="1:00 PM">1:00 PM</option>
-                            <option value="2:00 PM">2:00 PM</option>
-                            <option value="3:00 PM">3:00 PM</option>
-                            <option value="4:00 PM">4:00 PM</option>
-                            <option value="5:00 PM">5:00 PM</option>
+                            <!-- Add hourly slots -->
                         </select>
 
-                        <label for="vehicle" class="block mb-4">Select Vehicle Make & Model:</label>
-                        <div id="car-query">
-                            <select id="make" class="w-full p-2 mb-4 rounded bg-gray-700 text-white"></select>
-                            <select id="model" class="w-full p-2 mb-4 rounded bg-gray-700 text-white"></select>
-                        </div>
+                        <label for="vehicle" class="block mb-4">Vehicle Make & Model:</label>
+                        <input type="text" id="vehicle" name="vehicle" placeholder="Enter your vehicle">
 
                         <button type="submit" class="primary-bg text-white py-2 px-6 rounded hover:bg-gray-800 transition">Pay 25% Deposit</button>
                     </form>
+                </div>
+            </section>
+
+            <!-- Interactive Map -->
+            <section id="map" class="py-12">
+                <div class="container mx-auto text-center">
+                    <h2 class="text-3xl font-bold primary-color mb-6">Our Service Area</h2>
+                    <div id="service-map" style="height: 400px;"></div>
+                </div>
+            </section>
+
+            <!-- Reviews Section -->
+            <section id="reviews" class="py-12">
+                <div class="container mx-auto text-center">
+                    <h2 class="text-3xl font-bold primary-color mb-6">Customer Reviews</h2>
+                    <div class="carousel">
+                        <div class="carousel-container">
+                            <div class="carousel-card">
+                                <p>"Fantastic service, highly recommended!"</p>
+                                <span>★★★★★</span>
+                            </div>
+                            <!-- Add more reviews -->
+                        </div>
+                    </div>
                 </div>
             </section>
         </main>
@@ -138,14 +147,26 @@
             enableTime: false,
             dateFormat: "Y-m-d",
             minDate: "today",
-            disable: ["2024-12-29", "2024-12-30"], // Example of grayed-out dates
         });
 
-        // Initialize CarQuery
-        const carQuery = new CarQuery();
-        carQuery.init();
-        carQuery.setFilters({ sold_in_us: false });
-        carQuery.initYearMakeModelTrim("make", "model", null);
+        // Google Maps API
+        function initMap() {
+            const serviceArea = { lat: 52.241, lng: -0.902 };
+            const map = new google.maps.Map(document.getElementById("service-map"), {
+                zoom: 9,
+                center: serviceArea,
+            });
+            const circle = new google.maps.Circle({
+                center: serviceArea,
+                radius: 50000, // 50 km radius
+                fillColor: "#00C8D7",
+                fillOpacity: 0.2,
+                strokeColor: "#00C8D7",
+                strokeOpacity: 0.8,
+                map: map,
+            });
+        }
+        initMap();
     </script>
 </body>
 </html>
