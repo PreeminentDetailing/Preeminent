@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Preeminent Detailing</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Add Montserrat Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <style>
         body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'Montserrat', sans-serif;
             background-color: #0D0D0D;
             color: #E5E5E5;
         }
@@ -62,120 +64,7 @@
                 <div class="container mx-auto">
                     <h2 class="text-3xl font-bold primary-color mb-6 text-center">Our Services</h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        <!-- Core Services -->
-                        <div>
-                            <h3 class="text-xl font-bold mb-2 cursor-pointer primary-color" onclick="toggleDetails('service1')">
-                                Exterior Wash & Protection - £70
-                            </h3>
-                            <img src="Exterior.png" alt="Exterior Wash" class="w-24 h-24 mb-4 rounded">
-                            <p id="service1" class="hidden">
-                                - Snow foam pre-wash<br>
-                                - Wheels cleaned (wheel cleaner and fallout remover)<br>
-                                - Hand wash with Synergy Refresh Shampoo<br>
-                                - Insect strip removal<br>
-                                - Sealant applied to paintwork<br>
-                                - Glass cleaned and polished
-                            </p>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold mb-2 cursor-pointer primary-color" onclick="toggleDetails('service2')">
-                                Interior Deep Clean - £70
-                            </h3>
-                            <img src="Interior.png" alt="Interior Deep Clean" class="w-24 h-24 mb-4 rounded">
-                            <p id="service2" class="hidden">
-                                - Full vacuum of interior and boot<br>
-                                - Carpet shampoo and stain removal<br>
-                                - Leather cleaned and dressed<br>
-                                - Plastics deep cleaned and dressed<br>
-                                - Glass cleaned<br>
-                                - Air freshener applied
-                            </p>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold mb-2 cursor-pointer primary-color" onclick="toggleDetails('service3')">
-                                Interior + Exterior Package - £125
-                            </h3>
-                            <img src="Interior + Exterior.png" alt="Interior + Exterior" class="w-24 h-24 mb-4 rounded">
-                            <p id="service3" class="hidden">
-                                - Includes both the Exterior Wash & Protection and Interior Deep Clean.
-                            </p>
-                        </div>
-                        <!-- Paint Corrections -->
-                        <div>
-                            <h3 class="text-xl font-bold mb-2 cursor-pointer primary-color" onclick="toggleDetails('service8')">
-                                Wash, Decontamination & Stage 1 Correction - £285
-                            </h3>
-                            <img src="Stage 1.png" alt="Stage 1 Correction" class="w-24 h-24 mb-4 rounded">
-                            <p id="service8" class="hidden">
-                                - Full Exterior Wash & Protection<br>
-                                - Decontamination: Fallout remover and clay bar treatment<br>
-                                - Stage 1 Paint Correction: Rupes Yellow Pad & Fine Compound<br>
-                                - Removes light swirls and enhances gloss
-                            </p>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold mb-2 cursor-pointer primary-color" onclick="toggleDetails('service9')">
-                                Wash, Decontamination & Stage 2 Correction - £380
-                            </h3>
-                            <img src="Stage 2.png" alt="Stage 2 Correction" class="w-24 h-24 mb-4 rounded">
-                            <p id="service9" class="hidden">
-                                - Full Exterior Wash & Protection<br>
-                                - Decontamination: Fallout remover and clay bar treatment<br>
-                                - Stage 2 Paint Correction: Rupes Blue Pad (cutting) & Yellow Pad (polishing)<br>
-                                - Removes heavier swirls, scratches, and restores gloss
-                            </p>
-                        </div>
-                        <!-- Preeminent Detail Package -->
-                        <div>
-                            <h3 class="text-xl font-bold mb-2 cursor-pointer primary-color" onclick="toggleDetails('service10')">
-                                Preeminent Detail Package - £350
-                            </h3>
-                            <img src="Preeminent Package.webp" alt="Preeminent Detail Package" class="w-24 h-24 mb-4 rounded">
-                            <p id="service10" class="hidden">
-                                - Exterior Wash & Protection<br>
-                                - Full Interior Deep Clean<br>
-                                - Engine Bay Clean<br>
-                                - Wash, Decontamination & Stage 1 Correction<br>
-                                - 1-Year Ceramic Coating applied
-                            </p>
-                        </div>
-                        <!-- Other Packages -->
-                        <div>
-                            <h3 class="text-xl font-bold mb-2 cursor-pointer primary-color" onclick="toggleDetails('service5')">
-                                Enhancement Package - £185
-                            </h3>
-                            <img src="Enhancement Package.png" alt="Enhancement Package" class="w-24 h-24 mb-4 rounded">
-                            <p id="service5" class="hidden">
-                                - Exterior Wash & Protection<br>
-                                - Decontamination: Fallout remover and clay bar treatment<br>
-                                - 1-Year Ceramic Coating applied
-                            </p>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold mb-2 cursor-pointer primary-color" onclick="toggleDetails('service6')">
-                                Showroom Finish Package - £450
-                            </h3>
-                            <img src="Showroom Package.png" alt="Showroom Finish Package" class="w-24 h-24 mb-4 rounded">
-                            <p id="service6" class="hidden">
-                                - Full Exterior Wash & Protection<br>
-                                - Full Decontamination<br>
-                                - Wash, Decontamination & Stage 2 Correction<br>
-                                - 2-Year Ceramic Coating applied<br>
-                                - Engine Bay Clean
-                            </p>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold mb-2 cursor-pointer primary-color" onclick="toggleDetails('service7')">
-                                New Car Protection Package - From £180
-                            </h3>
-                            <img src="new car protection package.png" alt="New Car Protection Package" class="w-24 h-24 mb-4 rounded">
-                            <p id="service7" class="hidden">
-                                - Exterior Wash & Protection<br>
-                                - Decontamination to remove transport contaminants<br>
-                                - 1-Year or 2-Year Ceramic Coating applied<br>
-                                - Optional interior protection
-                            </p>
-                        </div>
+                        <!-- Add service cards here -->
                     </div>
                 </div>
             </section>
