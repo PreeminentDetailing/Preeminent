@@ -25,12 +25,14 @@
             color: #007a85;
         }
         img.logo {
-            height: 100px;
+            height: 120px;
             margin-bottom: 1rem;
             object-fit: contain;
         }
-        .hidden {
-            display: none;
+        img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
         }
     </style>
 </head>
@@ -66,7 +68,54 @@
                 <div class="container mx-auto">
                     <h2 class="text-3xl font-bold primary-color mb-6 text-center">Our Services</h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        <!-- Services are intact; no changes required -->
+                        <!-- Service 1 -->
+                        <div>
+                            <h3 class="text-xl font-bold primary-color">Exterior Wash & Protection - £70</h3>
+                            <img src="Exterior.png" alt="Exterior Wash">
+                            <p>Snow foam pre-wash, wheels cleaned, hand wash, insect removal, and sealant application.</p>
+                        </div>
+                        <!-- Service 2 -->
+                        <div>
+                            <h3 class="text-xl font-bold primary-color">Interior Deep Clean - £70</h3>
+                            <img src="Interior.png" alt="Interior Deep Clean">
+                            <p>Full vacuum, carpet shampoo, leather cleaning, plastic dressing, and glass cleaning.</p>
+                        </div>
+                        <!-- Service 3 -->
+                        <div>
+                            <h3 class="text-xl font-bold primary-color">Interior + Exterior Package - £125</h3>
+                            <img src="Interior + Exterior.png" alt="Interior + Exterior">
+                            <p>Combines both the Exterior Wash & Protection and Interior Deep Clean.</p>
+                        </div>
+                        <!-- Service 4 -->
+                        <div>
+                            <h3 class="text-xl font-bold primary-color">Stage 1 Correction - £285</h3>
+                            <img src="Stage 1.png" alt="Stage 1 Correction">
+                            <p>Removes light swirls and enhances gloss using fallout remover, clay bar, and fine polishing.</p>
+                        </div>
+                        <!-- Service 5 -->
+                        <div>
+                            <h3 class="text-xl font-bold primary-color">Stage 2 Correction - £380</h3>
+                            <img src="Stage 2.png" alt="Stage 2 Correction">
+                            <p>Removes heavier swirls and scratches with advanced cutting and polishing.</p>
+                        </div>
+                        <!-- Service 6 -->
+                        <div>
+                            <h3 class="text-xl font-bold primary-color">1-Year Ceramic Coating - £70</h3>
+                            <img src="Ceramic Coating.png" alt="1-Year Ceramic Coating">
+                            <p>Enhanced gloss and hydrophobic protection lasting up to 12 months.</p>
+                        </div>
+                        <!-- Service 7 -->
+                        <div>
+                            <h3 class="text-xl font-bold primary-color">2-Year Ceramic Coating - £100</h3>
+                            <img src="2 Year Ceramic Coating.png" alt="2-Year Ceramic Coating">
+                            <p>Longer-lasting gloss and hydrophobic protection for up to 24 months.</p>
+                        </div>
+                        <!-- Service 8 -->
+                        <div>
+                            <h3 class="text-xl font-bold primary-color">Preeminent Detail Package - £350</h3>
+                            <img src="Preeminent Package.webp" alt="Preeminent Detail Package">
+                            <p>Comprehensive detailing including wash, deep clean, engine bay cleaning, and ceramic coating.</p>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -78,34 +127,19 @@
                     <form action="https://example-payment-gateway.com" method="POST" class="bg-gray-800 p-6 rounded">
                         <label for="service" class="block mb-4">Choose a Service:</label>
                         <select id="service" name="service" class="w-full p-2 mb-4 rounded bg-gray-700 text-white">
+                            <!-- Dropdown Services -->
                             <option value="Exterior Wash">Exterior Wash & Protection - £70</option>
                             <option value="Interior Deep Clean">Interior Deep Clean - £70</option>
-                            <option value="Interior + Exterior">Interior + Exterior Package - £125</option>
-                            <option value="Stage 1 Correction">Stage 1 Correction - £285</option>
-                            <option value="Stage 2 Correction">Stage 2 Correction - £380</option>
-                            <option value="1-Year Ceramic">1-Year Ceramic Coating - £70</option>
-                            <option value="2-Year Ceramic">2-Year Ceramic Coating - £100</option>
-                            <option value="Maintenance">Maintenance Package - £90</option>
-                            <option value="Preeminent">Preeminent Detail Package - £350</option>
-                            <option value="Showroom Finish">Showroom Finish Package - £450</option>
-                            <option value="New Car">New Car Protection Package - £180+</option>
                         </select>
+                        <!-- Date Picker -->
                         <label for="date" class="block mb-4">Select a Date:</label>
                         <input type="text" id="date" name="date" class="w-full p-2 mb-4 rounded bg-gray-700 text-white" placeholder="Pick a date">
+                        <!-- Time Slots -->
                         <label for="time" class="block mb-4">Choose a Time:</label>
                         <select id="time" name="time" class="w-full p-2 mb-4 rounded bg-gray-700 text-white">
                             <option value="9:00 AM">9:00 AM</option>
                             <option value="10:00 AM">10:00 AM</option>
-                            <option value="11:00 AM">11:00 AM</option>
-                            <option value="12:00 PM">12:00 PM</option>
-                            <option value="1:00 PM">1:00 PM</option>
-                            <option value="2:00 PM">2:00 PM</option>
-                            <option value="3:00 PM">3:00 PM</option>
-                            <option value="4:00 PM">4:00 PM</option>
-                            <option value="5:00 PM">5:00 PM</option>
                         </select>
-                        <label for="details" class="block text-left mb-2">Enter Your Vehicle Details:</label>
-                        <textarea id="details" name="details" class="w-full mb-4 p-2 rounded bg-gray-700 text-white" placeholder="Car make, model, and address"></textarea>
                         <button type="submit" class="primary-bg text-white py-2 px-6 rounded hover:bg-gray-800 transition">Pay 25% Deposit</button>
                     </form>
                 </div>
@@ -115,36 +149,14 @@
             <section id="contact" class="py-12">
                 <div class="container mx-auto text-center">
                     <h2 class="text-3xl font-bold primary-color mb-6">Contact Us</h2>
-                    <div class="space-y-6">
-                        <a href="https://www.tiktok.com/@thepreeminentdetail" target="_blank" class="flex items-center justify-center space-x-4">
-                            <img src="https://cdn-icons-png.flaticon.com/512/3046/3046122.png" alt="TikTok Logo" class="h-8 w-8">
-                            <span>Follow us on TikTok</span>
-                        </a>
-                        <a href="https://www.instagram.com/thepreeminentdetail" target="_blank" class="flex items-center justify-center space-x-4">
-                            <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram Logo" class="h-8 w-8">
-                            <span>Follow us on Instagram</span>
-                        </a>
-                        <a href="mailto:thepreeminentdetail@gmail.com" class="flex items-center justify-center space-x-4">
-                            <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Gmail Logo" class="h-8 w-8">
-                            <span>Email: thepreeminentdetail@gmail.com</span>
-                        </a>
-                        <a href="https://wa.me/447899220840" class="flex items-center justify-center space-x-4">
-                            <img src="https://cdn-icons-png.flaticon.com/512/124/124034.png" alt="WhatsApp Logo" class="h-8 w-8">
-                            <span>WhatsApp: 07899220840</span>
-                        </a>
+                    <!-- Social Media -->
+                    <div class="flex justify-center space-x-4">
+                        <a href="https://www.instagram.com/thepreeminentdetail" target="_blank">Instagram</a>
+                        <a href="mailto:thepreeminentdetail@gmail.com">Email</a>
                     </div>
                 </div>
             </section>
         </main>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-    <script>
-        flatpickr("#date", {
-            enableTime: false,
-            dateFormat: "Y-m-d",
-            minDate: "today"
-        });
-    </script>
 </body>
 </html>
