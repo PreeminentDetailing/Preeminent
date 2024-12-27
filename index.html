@@ -6,8 +6,9 @@
     <title>Preeminent Detailing</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
+    <script src="https://www.carqueryapi.com/js/carquery.0.3.4.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -21,51 +22,26 @@
             background-color: #00C8D7;
         }
         img {
-            width: 100px;
-            height: 100px;
+            width: 100%;
+            height: auto;
             object-fit: cover;
         }
-        .progress-bar {
-            display: flex;
-            margin-bottom: 20px;
-        }
-        .progress-step {
-            flex: 1;
-            padding: 10px;
-            text-align: center;
-            border-right: 2px solid white;
-        }
-        .progress-step.active {
-            background-color: #00C8D7;
-            color: #FFF;
-        }
-        .carousel {
-            display: flex;
-            overflow: hidden;
+        input, select, textarea {
             width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            background-color: #1F1F1F;
+            color: white;
         }
-        .carousel-card {
-            min-width: 300px;
-            margin: 10px;
-            padding: 20px;
-            background: #1F1F1F;
-            border-radius: 8px;
-            text-align: center;
-        }
-        .carousel-container {
-            display: flex;
-            animation: slide 10s infinite;
-        }
-        @keyframes slide {
-            0% { transform: translateX(0); }
-            25% { transform: translateX(-100%); }
-            50% { transform: translateX(-200%); }
-            75% { transform: translateX(-300%); }
-            100% { transform: translateX(0); }
+        #service-map {
+            width: 100%;
+            height: 400px;
         }
     </style>
 </head>
 <body>
+    <!-- Sidebar -->
     <div class="flex">
         <aside class="w-64 h-screen bg-gray-900 text-white fixed flex flex-col items-center py-6">
             <img src="full_trimmed_transparent_customcolor.png" alt="Preeminent Detailing Logo" class="logo">
@@ -74,7 +50,7 @@
                     <li><a href="#home" class="hover:underline">Home</a></li>
                     <li><a href="#services" class="hover:underline">Services</a></li>
                     <li><a href="#booking" class="hover:underline">Book Now</a></li>
-                    <li><a href="#reviews" class="hover:underline">Reviews</a></li>
+                    <li><a href="#map" class="hover:underline">Our Area</a></li>
                     <li><a href="#contact" class="hover:underline">Contact</a></li>
                 </ul>
             </nav>
@@ -82,20 +58,36 @@
 
         <!-- Main Content -->
         <main class="ml-64 flex-1">
+            <!-- Services Section -->
+            <section id="services" class="py-12">
+                <div class="container mx-auto">
+                    <h2 class="text-3xl font-bold primary-color mb-6 text-center">Our Services</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div>
+                            <h3 class="text-xl font-bold primary-color">Exterior Wash & Protection - £70</h3>
+                            <img src="Exterior.png" alt="Exterior Wash">
+                            <p>Snow foam pre-wash, wheels cleaned, hand wash, insect removal, and sealant application.</p>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold primary-color">Interior Deep Clean - £70</h3>
+                            <img src="Interior.png" alt="Interior Deep Clean">
+                            <p>Full vacuum, carpet shampoo, leather cleaning, plastic dressing, and glass cleaning.</p>
+                        </div>
+                        <!-- Add more services here -->
+                    </div>
+                </div>
+            </section>
+
             <!-- Booking Section -->
             <section id="booking" class="py-12">
                 <div class="container mx-auto text-center">
                     <h2 class="text-3xl font-bold primary-color mb-6">Book Your Detailing</h2>
-                    <div class="progress-bar">
-                        <div class="progress-step active">Step 1: Service</div>
-                        <div class="progress-step">Step 2: Date & Time</div>
-                        <div class="progress-step">Step 3: Payment</div>
-                    </div>
                     <form action="https://example-payment-gateway.com" method="POST" class="bg-gray-800 p-6 rounded">
                         <label for="service" class="block mb-4">Choose a Service:</label>
                         <select id="service" name="service" class="w-full p-2 mb-4 rounded bg-gray-700 text-white">
                             <option value="Exterior Wash">Exterior Wash & Protection - £70</option>
-                            <!-- Add all services -->
+                            <option value="Interior Deep Clean">Interior Deep Clean - £70</option>
+                            <!-- Add all services here -->
                         </select>
 
                         <label for="date" class="block mb-4">Select a Date:</label>
@@ -108,34 +100,32 @@
                         </select>
 
                         <label for="vehicle" class="block mb-4">Vehicle Make & Model:</label>
-                        <input type="text" id="vehicle" name="vehicle" placeholder="Enter your vehicle">
+                        <div id="car-query">
+                            <select id="make" class="w-full p-2 mb-4 rounded bg-gray-700 text-white"></select>
+                            <select id="model" class="w-full p-2 mb-4 rounded bg-gray-700 text-white"></select>
+                        </div>
 
                         <button type="submit" class="primary-bg text-white py-2 px-6 rounded hover:bg-gray-800 transition">Pay 25% Deposit</button>
                     </form>
                 </div>
             </section>
 
-            <!-- Interactive Map -->
+            <!-- Map Section -->
             <section id="map" class="py-12">
                 <div class="container mx-auto text-center">
                     <h2 class="text-3xl font-bold primary-color mb-6">Our Service Area</h2>
-                    <div id="service-map" style="height: 400px;"></div>
+                    <div id="service-map"></div>
                 </div>
             </section>
 
-            <!-- Reviews Section -->
-            <section id="reviews" class="py-12">
+            <!-- Contact Section -->
+            <section id="contact" class="py-12">
                 <div class="container mx-auto text-center">
-                    <h2 class="text-3xl font-bold primary-color mb-6">Customer Reviews</h2>
-                    <div class="carousel">
-                        <div class="carousel-container">
-                            <div class="carousel-card">
-                                <p>"Fantastic service, highly recommended!"</p>
-                                <span>★★★★★</span>
-                            </div>
-                            <!-- Add more reviews -->
-                        </div>
-                    </div>
+                    <h2 class="text-3xl font-bold primary-color mb-6">Contact Us</h2>
+                    <a href="https://www.tiktok.com/@thepreeminentdetail" target="_blank">TikTok</a>
+                    <a href="https://www.instagram.com/thepreeminentdetail" target="_blank">Instagram</a>
+                    <a href="mailto:thepreeminentdetail@gmail.com">Email Us</a>
+                    <a href="https://wa.me/447899220840">WhatsApp</a>
                 </div>
             </section>
         </main>
@@ -149,7 +139,7 @@
             minDate: "today",
         });
 
-        // Google Maps API
+        // Initialize Google Maps
         function initMap() {
             const serviceArea = { lat: 52.241, lng: -0.902 };
             const map = new google.maps.Map(document.getElementById("service-map"), {
@@ -158,7 +148,7 @@
             });
             const circle = new google.maps.Circle({
                 center: serviceArea,
-                radius: 50000, // 50 km radius
+                radius: 50000,
                 fillColor: "#00C8D7",
                 fillOpacity: 0.2,
                 strokeColor: "#00C8D7",
@@ -167,6 +157,12 @@
             });
         }
         initMap();
+
+        // Initialize CarQuery
+        const carQuery = new CarQuery();
+        carQuery.init();
+        carQuery.setFilters({ sold_in_us: false });
+        carQuery.initYearMakeModelTrim("make", "model", null);
     </script>
 </body>
 </html>
