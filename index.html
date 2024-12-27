@@ -1,86 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Metadata and Styles -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Preeminent Detailing</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
-    <script src="https://www.carqueryapi.com/js/carquery.0.3.4.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-   <style>
-    /* Side Navigation Bar */
-    nav {
-        width: 200px;
-        background-color: #1a202c;
-        height: 100vh;
-        position: fixed;
-        top: 0;
-        left: 0;
-        padding: 20px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    /* Logo Styling */
-    .logo {
-        width: 150px;
-        margin-bottom: 20px;
-    }
-
-    /* Navigation Links */
-    nav ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        width: 100%;
-    }
-
-    nav ul li {
-        margin: 15px 0;
-        text-align: center;
-    }
-
-    nav ul li a {
-        text-decoration: none;
-        color: #fff;
-        font-size: 16px;
-        display: block;
-        padding: 10px;
-        border-radius: 5px;
-        transition: background-color 0.3s;
-    }
-
-    nav ul li a:hover {
-        background-color: #2d3748;
-    }
-</style>
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js" defer></script>
 </head>
 <body>
-    <!-- Sidebar -->
-    <div class="flex">
-        <aside class="w-64 h-screen bg-gray-900 text-white fixed flex flex-col items-center py-6">
-            <img src="full_trimmed_transparent_customcolor.png" alt="Preeminent Detailing Logo" class="logo">
-           <nav>
-    <img src="full_trimmed_transparent_customcolor.png" alt="Preeminent Logo" class="logo">
-    <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#booking">Book Now</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="#area">Our Area</a></li>
-    </ul>
-</nav>
 
-        </aside>
+    <!-- Navigation Bar -->
+    <nav>
+        <img src="full_trimmed_transparent_customcolor.png" alt="Preeminent Logo" class="logo">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#booking">Book Now</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#area">Our Area</a></li>
+        </ul>
+    </nav>
 
-        <!-- Main Content -->
-        <main class="ml-64 flex-1">
-            <!-- Services Section -->
-            <section id="services" class="py-12">
+    <!-- Home Section -->
+    <header id="home">
+        <div>
+            <h1>Unleash Your Car's True Potential!</h1>
+            <p>Welcome to Preeminent Detailing – Where Excellence Meets Elegance.Transform your vehicle with precision and care.</p>
+            <button onclick="window.location='#booking'">Book Now</button>
+        </div>
+    </header>
+
+
+
+
+    <!-- Services Section -->
+    <section id="services" class="py-12">
     <div class="container mx-auto">
         <h2 class="text-3xl font-bold primary-color mb-6 text-center">Our Services</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -147,91 +103,75 @@
            </div>
 </section>
 
-            <!-- Booking Section -->
-            <section id="booking" class="py-12">
-                <div class="container mx-auto text-center">
-                    <h2 class="text-3xl font-bold primary-color mb-6">Book Your Detailing</h2>
-                    <form action="https://example-payment-gateway.com" method="POST" class="bg-gray-800 p-6 rounded">
-                        <label for="service" class="block mb-4">Choose a Service:</label>
-                        <select id="service" name="service" class="w-full p-2 mb-4 rounded bg-gray-700 text-white">
-                            <option value="Exterior Wash">Exterior Wash & Protection - £70</option>
-                            <option value="Interior Deep Clean">Interior Deep Clean - £70</option>
-                            <!-- Add all services here -->
-                        </select>
 
-                        <label for="date" class="block mb-4">Select a Date:</label>
-                        <input type="text" id="date" name="date" placeholder="Pick a date">
 
-                        <label for="time" class="block mb-4">Choose a Time:</label>
-                        <select id="time" name="time" class="w-full p-2 mb-4 rounded bg-gray-700 text-white">
-                            <option value="7:00 AM">7:00 AM</option>
-                            <!-- Add hourly slots -->
-                        </select>
 
-                        <label for="vehicle" class="block mb-4">Vehicle Make & Model:</label>
-                        <div id="car-query">
-                            <select id="make" class="w-full p-2 mb-4 rounded bg-gray-700 text-white"></select>
-                            <select id="model" class="w-full p-2 mb-4 rounded bg-gray-700 text-white"></select>
-                        </div>
 
-                        <button type="submit" class="primary-bg text-white py-2 px-6 rounded hover:bg-gray-800 transition">Pay 25% Deposit</button>
-                    </form>
-                </div>
-            </section>
+    <!-- Portfolio Section -->
+    <section id="portfolio">
+        <h2>Portfolio</h2>
+        <p>Showcase of our best work.</p>
+        <div class="gallery">
+            <!-- Add images here -->
+        </div>
+    </section>
 
-            <!-- Map Section -->
-            <section id="map" class="py-12">
-                <div class="container mx-auto text-center">
-                    <h2 class="text-3xl font-bold primary-color mb-6">Our Service Area</h2>
-                    <div id="service-map"></div>
-                </div>
-            </section>
 
-            <!-- Contact Section -->
-            <section id="contact" class="py-12">
-                <div class="container mx-auto text-center">
-                    <h2 class="text-3xl font-bold primary-color mb-6">Contact Us</h2>
-                    <a href="https://www.tiktok.com/@thepreeminentdetail" target="_blank">TikTok</a>
-                    <a href="https://www.instagram.com/thepreeminentdetail" target="_blank">Instagram</a>
-                    <a href="mailto:thepreeminentdetail@gmail.com">Email Us</a>
-                    <a href="https://wa.me/447899220840">WhatsApp</a>
-                </div>
-            </section>
-        </main>
-    </div>
 
-    <script>
-        // Initialize flatpickr
-        flatpickr("#date", {
-            enableTime: false,
-            dateFormat: "Y-m-d",
-            minDate: "today",
-        });
 
-        // Initialize Google Maps
-        function initMap() {
-            const serviceArea = { lat: 52.241, lng: -0.902 };
-            const map = new google.maps.Map(document.getElementById("service-map"), {
-                zoom: 9,
-                center: serviceArea,
-            });
-            const circle = new google.maps.Circle({
-                center: serviceArea,
-                radius: 50000,
-                fillColor: "#00C8D7",
-                fillOpacity: 0.2,
-                strokeColor: "#00C8D7",
-                strokeOpacity: 0.8,
-                map: map,
-            });
-        }
-        initMap();
+    <!-- Booking Section -->
+    <section id="booking">
+        <h2>Book Your Detailing</h2>
+        <form>
+            <label for="service">Choose a Service:</label>
+            <select id="service" name="service">
+                <!-- Services will be dynamically added -->
+            </select>
 
-        // Initialize CarQuery
-        const carQuery = new CarQuery();
-        carQuery.init();
-        carQuery.setFilters({ sold_in_us: false });
-        carQuery.initYearMakeModelTrim("make", "model", null);
-    </script>
+            <label for="date">Select a Date:</label>
+            <input type="date" id="date" name="date">
+
+            <label for="time">Choose a Time:</label>
+            <select id="time" name="time">
+                <!-- Time slots will be dynamically added -->
+            </select>
+
+            <label for="vehicle">Vehicle Make & Model:</label>
+            <input type="text" id="vehicle" name="vehicle">
+
+            <button type="submit">Pay 25% Deposit</button>
+        </form>
+    </section>
+
+
+
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Follow us on:</p>
+        <a href="https://tiktok.com/@thepreeminentdetail?_t=8lMn4E8t3ZJ&_r=1" target="_blank">TikTok</a>
+        <a href="https://instagram.com/thepreeminentdetail?igsh=MmYyYzNmZGVxeXN0&utm_source=qr" target="_blank">Instagram</a>
+        <p>Email: <a href="mailto:thepreeminentdetail@gmail.com">thepreeminentdetail@gmail.com</a></p>
+        <p>WhatsApp: <a href="tel:07899220840">07899220840</a></p>
+    </section>
+
+
+
+
+    <!-- Our Area Section -->
+    <section id="area">
+        <h2>Our Area</h2>
+        <p>We proudly serve Northamptonshire, Bedfordshire, Cambridgeshire, Luton, Peterborough, Leicestershire, and Birmingham.</p>
+        <div id="map">
+            <!-- Google Map integration goes here -->
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Preeminent Detailing</p>
+    </footer>
+
 </body>
 </html>
