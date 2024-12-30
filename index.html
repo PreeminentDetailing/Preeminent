@@ -233,28 +233,33 @@
             <h3 class="text-xl font-bold mb-4">Leave a Review</h3>
             <form id="review-form" class="space-y-4">
                 <!-- Name Input -->
-                <div>
-                    <label for="name" class="block text-lg mb-2">Your Name:</label>
-                    <input type="text" id="name" name="name" class="w-full p-2 border border-gray-300 rounded" placeholder="Enter your name" required>
-                </div>
+<div>
+    <label for="name" class="block text-lg font-semibold mb-2">Name:</label>
+    <input id="name" name="name" type="text" 
+        class="w-full max-w-md p-2 border border-gray-300 rounded text-black"
+        placeholder="Enter your name">
+</div>
 
-                <!-- Review Input -->
-                <div>
-                    <label for="review" class="block text-lg mb-2">Your Review:</label>
-                    <textarea id="review" name="review" class="w-full p-2 border border-gray-300 rounded" rows="4" placeholder="Write your review here" required></textarea>
-                </div>
+<!-- Review Input -->
+<div>
+    <label for="review" class="block text-lg font-semibold mb-2">Your Review:</label>
+    <textarea id="review" name="review" rows="4"
+        class="w-full max-w-md p-2 border border-gray-300 rounded text-black"
+        placeholder="Write your review"></textarea>
+</div>
 
-                <!-- Star Rating -->
-                <div>
-                    <label for="rating" class="block text-lg mb-2">Rate Us:</label>
-                    <select id="rating" name="rating" class="w-full p-2 border border-gray-300 rounded" required>
-                        <option value="5">★★★★★ (5 stars)</option>
-                        <option value="4">★★★★☆ (4 stars)</option>
-                        <option value="3">★★★☆☆ (3 stars)</option>
-                        <option value="2">★★☆☆☆ (2 stars)</option>
-                        <option value="1">★☆☆☆☆ (1 star)</option>
-                    </select>
-                </div>
+<!-- Star Rating -->
+<div>
+    <label for="rating" class="block text-lg font-semibold mb-2">Rate Us (1-5):</label>
+    <select id="rating" name="rating"
+        class="w-full max-w-md p-2 border border-gray-300 rounded text-black">
+        <option value="1">1 Star</option>
+        <option value="2">2 Stars</option>
+        <option value="3">3 Stars</option>
+        <option value="4">4 Stars</option>
+        <option value="5">5 Stars</option>
+    </select>
+</div>
 
                 <!-- Submit Button -->
                 <button type="submit" class="primary-bg text-white py-3 px-6 rounded hover:bg-gray-800 transition">
