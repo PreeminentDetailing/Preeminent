@@ -96,7 +96,8 @@
             <li><a href="#services">Services</a></li>
             <li><a href="#portfolio">Portfolio</a></li>
             <li><a href="#booking">Book Now</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#review">Review</a></li>
+            <li><a href="#contact">Contact</a></li>    
         </ul>
     </nav>
 
@@ -217,6 +218,80 @@
     });
 </script>
 
+<!-- Reviews Section -->
+<section id="reviews" class="py-12">
+    <div class="container mx-auto text-center">
+        <h2 class="text-3xl font-bold primary-color mb-6">Customer Reviews</h2>
+
+        <!-- Reviews Display -->
+        <div id="reviews-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+            <!-- Dynamic Reviews Will Appear Here -->
+        </div>
+
+        <!-- Submit a Review Form -->
+        <div class="bg-gray-800 p-6 rounded shadow-lg">
+            <h3 class="text-xl font-bold mb-4">Leave a Review</h3>
+            <form id="review-form" class="space-y-4">
+                <!-- Name Input -->
+                <div>
+                    <label for="name" class="block text-lg mb-2">Your Name:</label>
+                    <input type="text" id="name" name="name" class="w-full p-2 border border-gray-300 rounded" placeholder="Enter your name" required>
+                </div>
+
+                <!-- Review Input -->
+                <div>
+                    <label for="review" class="block text-lg mb-2">Your Review:</label>
+                    <textarea id="review" name="review" class="w-full p-2 border border-gray-300 rounded" rows="4" placeholder="Write your review here" required></textarea>
+                </div>
+
+                <!-- Star Rating -->
+                <div>
+                    <label for="rating" class="block text-lg mb-2">Rate Us:</label>
+                    <select id="rating" name="rating" class="w-full p-2 border border-gray-300 rounded" required>
+                        <option value="5">★★★★★ (5 stars)</option>
+                        <option value="4">★★★★☆ (4 stars)</option>
+                        <option value="3">★★★☆☆ (3 stars)</option>
+                        <option value="2">★★☆☆☆ (2 stars)</option>
+                        <option value="1">★☆☆☆☆ (1 star)</option>
+                    </select>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="primary-bg text-white py-3 px-6 rounded hover:bg-gray-800 transition">
+                    Submit Review
+                </button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- JavaScript to Handle Reviews -->
+<script>
+    document.getElementById('review-form').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent form submission
+
+        // Get Form Values
+        const name = document.getElementById('name').value;
+        const review = document.getElementById('review').value;
+        const rating = document.getElementById('rating').value;
+
+        // Create Review HTML
+        const reviewHTML = `
+            <div class="p-4 bg-gray-800 rounded shadow-lg">
+                <p class="text-lg mb-4">"${review}"</p>
+                <div class="text-yellow-400">${'★'.repeat(rating)}${'☆'.repeat(5 - rating)}</div>
+                <p class="mt-2 text-sm text-gray-400">- ${name}</p>
+            </div>
+        `;
+
+        // Append Review to List
+        const reviewsList = document.getElementById('reviews-list');
+        reviewsList.innerHTML = reviewHTML + reviewsList.innerHTML;
+
+        // Clear Form
+        document.getElementById('review-form').reset();
+    });
+</script>
 
 <!-- Contact Section -->
 <section id="contact" class="py-12">
