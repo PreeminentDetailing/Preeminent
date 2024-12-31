@@ -7,6 +7,54 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
+  import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-database.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyDycKtItNVQGWq4NwKbc4zKLsduXZLckbc",
+    authDomain: "website-reviews-737c6.firebaseapp.com",
+    databaseURL: "https://website-reviews-737c6-default-rtdb.firebaseio.com/",
+    projectId: "website-reviews-737c6",
+    storageBucket: "website-reviews-737c6.firebasestorage.app",
+    messagingSenderId: "913646364748",
+    appId: "1:913646364748:web:b78c5b8046d37b090c2ce9",
+    measurementId: "G-S45PY65XB6"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getDatabase(app);
+
+  // Save Reviews
+  document.getElementById('review-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = document.getElementById('name').value;
+    const review = document.getElementById('review').value;
+    const rating = document.getElementById('rating').value;
+
+    push(ref(db, 'reviews'), { name, review, rating: parseInt(rating) });
+
+    alert('Thank you for your review!');
+    document.getElementById('review-form').reset();
+  });
+
+  // Display Reviews
+  const reviewsList = document.getElementById('reviews-list');
+  onValue(ref(db, 'reviews'), (snapshot) => {
+    reviewsList.innerHTML = "";
+    snapshot.forEach((childSnapshot) => {
+      const review = childSnapshot.val();
+      reviewsList.innerHTML += `
+        <div class="p-4 bg-gray-800 rounded shadow-md">
+          <p class="text-lg font-semibold">"${review.review}"</p>
+          <div class="text-yellow-400">${'★'.repeat(review.rating)}${'☆'.repeat(5 - review.rating)}</div>
+          <p class="text-sm text-gray-400 mt-2">- ${review.name}</p>
+        </div>
+      `;
+    });
+  });
+</script>
+
         body {
             font-family: 'Helvetica Neue', Arial, sans-serif;
             background-color: #0D0D0D; /* Dark background */
@@ -220,83 +268,24 @@
 
 <!-- Reviews Section -->
 <section id="reviews" class="py-12">
-    <div class="container mx-auto text-center">
-        <h2 class="text-3xl font-bold primary-color mb-6">Customer Reviews</h2>
-
-        <!-- Reviews Display -->
-        <div id="reviews-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-            <!-- Dynamic Reviews Will Appear Here -->
-        </div>
-
-        <!-- Submit a Review Form -->
-        <div class="bg-gray-800 p-6 rounded shadow-lg">
-            <h3 class="text-xl font-bold mb-4">Leave a Review</h3>
-            <form id="review-form" class="space-y-4">
-                <!-- Name Input -->
-<div>
-    <label for="name" class="block text-lg font-semibold mb-2">Name:</label>
-    <input id="name" name="name" type="text" 
-        class="w-full max-w-md p-2 border border-gray-300 rounded text-black"
-        placeholder="Enter your name">
-</div>
-
-<!-- Review Input -->
-<div>
-    <label for="review" class="block text-lg font-semibold mb-2">Your Review:</label>
-    <textarea id="review" name="review" rows="4"
-        class="w-full max-w-md p-2 border border-gray-300 rounded text-black"
-        placeholder="Write your review"></textarea>
-</div>
-
-<!-- Star Rating -->
-<div>
-    <label for="rating" class="block text-lg font-semibold mb-2">Rate Us (1-5):</label>
-    <select id="rating" name="rating"
-        class="w-full max-w-md p-2 border border-gray-300 rounded text-black">
-        <option value="1">1 Star</option>
-        <option value="2">2 Stars</option>
-        <option value="3">3 Stars</option>
-        <option value="4">4 Stars</option>
+  <div class="container mx-auto text-center">
+    <h2 class="text-3xl font-bold primary-color mb-6">Leave a Review</h2>
+    <form id="review-form" class="space-y-6">
+      <input type="text" id="name" placeholder="Your Name" required class="w-full max-w-md p-2 border border-gray-300 rounded">
+      <textarea id="review" placeholder="Your Review" required class="w-full max-w-md p-2 border border-gray-300 rounded"></textarea>
+      <select id="rating" required class="w-full max-w-md p-2 border border-gray-300 rounded">
         <option value="5">5 Stars</option>
-    </select>
-</div>
+        <option value="4">4 Stars</option>
+        <option value="3">3 Stars</option>
+        <option value="2">2 Stars</option>
+        <option value="1">1 Star</option>
+      </select>
+      <button type="submit" class="primary-bg text-white py-3 px-6 rounded">Submit Review</button>
+    </form>
 
-                <!-- Submit Button -->
-                <button type="submit" class="primary-bg text-white py-3 px-6 rounded hover:bg-gray-800 transition">
-                    Submit Review
-                </button>
-            </form>
-        </div>
-    </div>
+    <div id="reviews-list" class="mt-8 space-y-4"></div>
+  </div>
 </section>
-
-<!-- JavaScript to Handle Reviews -->
-<script>
-    document.getElementById('review-form').addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent form submission
-
-        // Get Form Values
-        const name = document.getElementById('name').value;
-        const review = document.getElementById('review').value;
-        const rating = document.getElementById('rating').value;
-
-        // Create Review HTML
-        const reviewHTML = `
-            <div class="p-4 bg-gray-800 rounded shadow-lg">
-                <p class="text-lg mb-4">"${review}"</p>
-                <div class="text-yellow-400">${'★'.repeat(rating)}${'☆'.repeat(5 - rating)}</div>
-                <p class="mt-2 text-sm text-gray-400">- ${name}</p>
-            </div>
-        `;
-
-        // Append Review to List
-        const reviewsList = document.getElementById('reviews-list');
-        reviewsList.innerHTML = reviewHTML + reviewsList.innerHTML;
-
-        // Clear Form
-        document.getElementById('review-form').reset();
-    });
-</script>
 
 <!-- Contact Section -->
 <section id="contact" class="py-12">
