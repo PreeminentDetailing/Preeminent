@@ -252,12 +252,12 @@
 <div>
     <label for="rating" class="block text-lg font-semibold mb-2">Rate Us (1-5):</label>
     <select id="rating" name="rating"
-        class="w-full max-w-md p-2 border border-gray-300 rounded text-black">
-        <option value="1">1 Star</option>
-        <option value="2">2 Stars</option>
-        <option value="3">3 Stars</option>
-        <option value="4">4 Stars</option>
-        <option value="5">5 Stars</option>
+            class="w-full max-w-md p-2 border border-gray-300 rounded text-black" required>
+        <option value="5">5 Stars - Excellent</option>
+        <option value="4">4 Stars - Very Good</option>
+        <option value="3">3 Stars - Average</option>
+        <option value="2">2 Stars - Needs Improvement</option>
+        <option value="1">1 Star - Poor</option>
     </select>
 </div>
 
@@ -269,34 +269,6 @@
         </div>
     </div>
 </section>
-
-<!-- JavaScript to Handle Reviews -->
-<script>
-    document.getElementById('review-form').addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent form submission
-
-        // Get Form Values
-        const name = document.getElementById('name').value;
-        const review = document.getElementById('review').value;
-        const rating = document.getElementById('rating').value;
-
-        // Create Review HTML
-        const reviewHTML = `
-            <div class="p-4 bg-gray-800 rounded shadow-lg">
-                <p class="text-lg mb-4">"${review}"</p>
-                <div class="text-yellow-400">${'★'.repeat(rating)}${'☆'.repeat(5 - rating)}</div>
-                <p class="mt-2 text-sm text-gray-400">- ${name}</p>
-            </div>
-        `;
-
-        // Append Review to List
-        const reviewsList = document.getElementById('reviews-list');
-        reviewsList.innerHTML = reviewHTML + reviewsList.innerHTML;
-
-        // Clear Form
-        document.getElementById('review-form').reset();
-    });
-</script>
 
 <!-- Contact Section -->
 <section id="contact" class="py-12">
@@ -353,6 +325,67 @@
             navMenu.style.display = navMenu.style.display === 'block' ? 'none' : 'block';
         });
     </script>
+<script type="module">
+    // Import Firebase dependencies
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
+    import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-database.js";
+
+    // Firebase configuration
+    const firebaseConfig = {
+        apiKey: "your-api-key",
+        authDomain: "your-auth-domain",
+        databaseURL: "your-database-url",
+        projectId: "your-project-id",
+        storageBucket: "your-storage-bucket",
+        messagingSenderId: "your-messaging-sender-id",
+        appId: "your-app-id"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+
+    // Handle Review Submission
+    document.getElementById('review-form').addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        // Get form values
+        const name = document.getElementById('name').value;
+        const review = document.getElementById('review').value;
+        const rating = document.getElementById('rating').value;
+
+        // Save review to Firebase
+        const reviewsRef = ref(database, 'reviews');
+        push(reviewsRef, {
+            name,
+            review,
+            rating
+        });
+
+        // Clear form
+        document.getElementById('review-form').reset();
+        alert('Thank you for your review!');
+    });
+
+    // Fetch and Display Reviews
+    const reviewsRef = ref(database, 'reviews');
+    onValue(reviewsRef, (snapshot) => {
+        const reviewsList = document.getElementById('reviews-list');
+        reviewsList.innerHTML = ''; // Clear existing reviews
+        snapshot.forEach((childSnapshot) => {
+            const reviewData = childSnapshot.val();
+            const reviewHTML = `
+                <div class="p-4 bg-gray-800 rounded shadow-lg">
+                    <p class="text-lg mb-4">"${reviewData.review}"</p>
+                    <div class="text-yellow-400">${'★'.repeat(reviewData.rating)}${'☆'.repeat(5 - reviewData.rating)}</div>
+                    <p class="mt-2 text-sm text-gray-400">- ${reviewData.name}</p>
+                </div>
+            `;
+            reviewsList.innerHTML += reviewHTML;
+        });
+    });
+</script>
+
 </body>
 </html>
 
